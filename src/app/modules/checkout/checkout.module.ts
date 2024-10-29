@@ -7,8 +7,6 @@ import { CloseRegisterComponent } from './pages/close-register/close-register.co
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 
-
-
 @NgModule({
   declarations: [
     OpenRegisterComponent,
