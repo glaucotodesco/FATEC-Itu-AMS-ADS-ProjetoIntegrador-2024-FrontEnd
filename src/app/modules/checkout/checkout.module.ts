@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OpenRegisterComponent } from './pages/open-register/open-register.component';
 import { OrdersSlipComponent } from './components/orders-slip/orders-slip.component';
+import { CheckoutRoutingModule } from './checkout-routing.module';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
-import { CheckoutRoutingModule } from './checkout-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
@@ -17,6 +19,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    NgbModule,
     CheckoutRoutingModule
   ]
 })

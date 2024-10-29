@@ -1,13 +1,15 @@
-<section class="container mb-5">
+<section class="container mb-5 mt-3">
   <h1 class="display-6">Produtos</h1>
-  <div class="d-flex justify-content-end sticky-top bg-white py-2">
+
+  <div class="d-flex justify-content-end bg-white py-2">
     <button type="button" class="btn btn-primary me-3" (click)="openModal(modalForm, {fullscreen: true})">Novo</button>
     <button type="button" class="btn btn-primary me-3">Importar</button>
   </div>
+  
   <div class="row">
     <div class="col-2">
       <div class="position-fixed">
-        <div class="d-flex gap-5" style="height: 550px;">
+        <div class="d-flex gap-5" style="height: 450px;">
           <div>
             <h4>Categorias</h4>
             <div class="list-group list-group-flush">
@@ -15,7 +17,7 @@
                 {{c.category}}
               </a>
             </div>
-            <button type="button" class="btn btn-primary btn-sm mt-3">
+            <button type="button" class="btn btn-primary btn-sm mt-3" routerLink="/admin/categories">
               <i class="bi bi-plus-lg"></i>
             </button>
           </div>

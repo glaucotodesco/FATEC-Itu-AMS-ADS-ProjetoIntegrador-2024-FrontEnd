@@ -1,1 +1,44 @@
-<p>open-register works!</p>
+<div class="container mt-5"></div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm" style="background-color: #f0f0f0; color: #000;">
+      <div class="card-header" style="background-color: #DCDCDC; color: #ffffff;">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="d-flex align-items-center me-3" style="font-size: 1.2rem; color: #000; font-weight: bold;">
+            <i class="bi bi-clock me-1"></i> 12:30
+          </span>
+          <h5 class="mb-0 text-center flex-grow-1" style="color: #000;">Abertura de Caixa</h5>
+          <span class="ms-3" style="font-size: 1rem; color: #ffffff;">
+            <i class="bi bi-calendar me-1"></i> 24/09/2024
+          </span>
+        </div>
+      </div>
+      <div class="card-body" style="background-color: #ffffff;">
+        <form id="cashRegisterForm">
+          <div class="form-group">
+            <label for="registerNumber" class="font-weight-bold" style="color: #343a40;">Número do Caixa Selecionado:</label>
+            <select id="registerNumber" class="form-control" style="background-color: #f8f9fa; color: #000;">
+              <option value="" disabled selected>Selecione um caixa fechado</option>
+              <option value="1">Caixa 1</option>
+              <option value="2">Caixa 2</option>
+              <option value="3">Caixa 3</option>
+              <!-- Adicione outras opções de caixas fechados aqui -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="initialValue" class="font-weight-bold" style="color: #343a40;">Valor Inicial:</label>
+            <input type="number" class="form-control" id="initialValue" placeholder="Digite o valor inicial" style="background-color: #f8f9fa; color: #000;" oninput="checkInitialValue()">
+          </div>
+          <div class="form-group text-center">
+            <p class="font-weight-bold" style="color: #000;">Valor Total da Abertura:</p>
+            <p class="h5" style="color: #000;" id="totalValue">R$ 0.00</p>
+          </div>
+          <div class="form-group text-center">
+            <button type="button" class="btn btn-primary btn-lg mb-2" (click)="save()" style="width: 100%;">Salvar</button>
+            <a href="/pdv" id="btnGoToPDV" class="btn btn-outline-dark btn-lg" style="width: 100%;" disabled>Ir para o PDV</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
