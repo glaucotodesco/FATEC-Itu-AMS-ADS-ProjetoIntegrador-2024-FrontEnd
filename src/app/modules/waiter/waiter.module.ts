@@ -7,6 +7,8 @@ import { OrderDetailsComponent } from './pages/order-details/order-details.compo
 import { OrderAddonsComponent } from './components/order-addons/order-addons.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TotalComponent } from './components/total/total.component';
+import { SharedModule } from '../../shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TotalComponent } from './components/total/total.component';
   ],
   imports: [
     CommonModule,
-    WaiterRoutingModule
+    WaiterRoutingModule,
+    SharedModule,
   ],
   exports: [
     HomeComponent,
