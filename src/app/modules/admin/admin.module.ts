@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EmployeeRegisterComponent } from './pages/employee-register/employee-register.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { CategoryTableComponent } from './components/category-table/category-table.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -14,6 +15,7 @@ import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
+    EmployeeRegisterComponent,
     ProductsComponent,
     CategoryTableComponent,
     CategoriesComponent,
