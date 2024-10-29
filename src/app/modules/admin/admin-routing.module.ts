@@ -7,6 +7,7 @@ import { CategoriesComponent } from "./pages/categories/categories.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { EmployeeRegisterComponent } from "./pages/employee-register/employee-register.component";
+import { RestaurantConfigComponent } from "./pages/restaurant-config/restaurant-config.component";
 
 const routes: Routes = [
   {
@@ -25,9 +26,18 @@ const routes: Routes = [
         path: 'employee',
         component: EmployeeRegisterComponent
       },
-      {path: "dashboard", component: HomeComponent},
-      {path: "about-us", component: AboutUsComponent},
-
+      {
+        path: 'restaurant',
+        component: RestaurantConfigComponent
+      },
+      {
+        path: "dashboard",
+        component: HomeComponent
+      },
+      {
+        path: "about-us",
+        component: AboutUsComponent
+      }
     ]
   },
   {
