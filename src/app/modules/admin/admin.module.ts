@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login/login.component';
+import { ProductComponent } from './pages/product/product.component';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { LoginComponent } from './pages/login/login.component';
     CategoryTableComponent,
     CategoriesComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ProductComponent
   ],
   imports: [
     SharedModule,

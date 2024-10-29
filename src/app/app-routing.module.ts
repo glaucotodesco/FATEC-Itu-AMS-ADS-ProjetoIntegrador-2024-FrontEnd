@@ -9,11 +9,9 @@ const routes: Routes = [
 
   {  path: 'waiter',
     loadChildren: () => import('./modules/waiter/waiter.module').then(m => m.WaiterModule)
-
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+    path: 'checkout', loadChildren: () => import('./modules/checkout/checkout.module').then(m => m.CheckoutModule)
   }
 
 ];
@@ -22,4 +20,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
