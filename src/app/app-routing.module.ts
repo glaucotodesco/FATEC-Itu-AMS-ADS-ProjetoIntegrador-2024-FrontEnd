@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminModule } from './modules/admin/admin.module';
 import { PrototypeComponent } from './prototype/prototype.component';
+
 
 const routes: Routes = [
   {
@@ -30,7 +32,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    AdminModule
+  ],
   exports: [RouterModule]
 })
 
