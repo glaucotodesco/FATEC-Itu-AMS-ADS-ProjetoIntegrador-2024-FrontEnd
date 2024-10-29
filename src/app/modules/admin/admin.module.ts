@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProductComponent } from './pages/product/product.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
     CategoryTableComponent,
     CategoriesComponent,
     HomeComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
+    LoginComponent,
+    ProductComponent
   ],
   imports: [
     SharedModule,
