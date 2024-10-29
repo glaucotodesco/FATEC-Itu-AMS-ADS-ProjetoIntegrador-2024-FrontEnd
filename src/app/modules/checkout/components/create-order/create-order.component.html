@@ -1,0 +1,52 @@
+<div class="mb-2">
+  <label for="comandaInput" class="form-label">Número da Comanda</label>
+  <input type="text" class="form-control form-control-sm" id="comandaInput" placeholder="Digite o número da comanda">
+</div>
+
+<div class="mb-2">
+  <label for="categoriaSelect" class="form-label">Categoria</label>
+  <select class="form-select form-select-sm" id="categoriaSelect" [(ngModel)]="categoriaSelecionada">
+    <option value="pratosPrincipais">Prato Principal</option>
+    <option value="sobremesas">Sobremesa</option>
+    <option value="bebidas">Bebidas</option>
+  </select>
+</div>
+
+<div id="produtos" class="mb-2" *ngIf="categoriaSelecionada">
+  <label for="produtoInput" class="form-label">Pesquisar Produto</label>
+  <input type="text" class="form-control form-control-sm" [(ngModel)]="pesquisa" placeholder="Digite o nome do produto">
+
+  <div *ngIf="pesquisa">
+    <div *ngIf="categoriaSelecionada === 'pratosPrincipais'">
+      <div *ngFor="let produto of filtrarProdutos(pratosPrincipais)">
+        <h6 class="card-title">{{ produto.nome }}</h6>
+        <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+        <button class="btn btn-primary btn-sm">Adicionar</button>
+      </div>
+    </div>
+
+    <div *ngIf="categoriaSelecionada === 'sobremesas'">
+      <div *ngFor="let produto of filtrarProdutos(sobremesas)">
+        <h6 class="card-title">{{ produto.nome }}</h6>
+        <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+        <button class="btn btn-primary btn-sm">Adicionar</button>
+      </div>
+    </div>
+
+    <div *ngIf="categoriaSelecionada === 'bebidas'">
+      <div *ngFor="let produto of filtrarProdutos(bebidas)">
+        <h6 class="card-title">{{ produto.nome }}</h6>
+        <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+        <button class="btn btn-primary btn-sm">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h6 class="mt-2">Produtos Adicionados</h6>
+<ul class="list-group mb-2">
+  <li class="list-group-item">1 x Refrigerante</li>
+  <li class="list-group-item">1 x Hambúrguer</li>
+  <li class="list-group-item">1 x Pudim</li>
+</ul>
+<button type="submit" class="btn btn-success w-100 btn-sm">Adicionar Pedido</button>
