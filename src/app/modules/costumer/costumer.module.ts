@@ -15,7 +15,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     HomeComponent,
     MenuComponent,
     MainComponent,
-    SideMenuComponent
+    SideMenuComponent,
     AboutUsComponent,
     SearchComponent,
     CategoriesComponent
