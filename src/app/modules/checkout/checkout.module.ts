@@ -5,13 +5,14 @@ import { OrdersSlipComponent } from './components/orders-slip/orders-slip.compon
 import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
 import { CheckoutRoutingModule } from './checkout-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
 @NgModule({
   declarations: [
     OpenRegisterComponent,
-    OrderListComponent
+    OrderListComponent,
     HomeComponent,
     OrdersSlipComponent,
     CloseRegisterComponent
