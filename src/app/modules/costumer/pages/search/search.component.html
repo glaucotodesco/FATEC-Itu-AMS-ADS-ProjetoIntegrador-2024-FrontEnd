@@ -1,0 +1,38 @@
+<main class="container p-4 vh-100">
+  <form class="form-inline d-flex justify-content-center align-items-center p-3 my-2 my-lg-0">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">
+        <i class="bi bi-search"></i>
+      </span>
+      <input class="form-control search col-6" type="text" placeholder="Pesquisar" aria-label="Search"
+        aria-describedby="basic-addon1">
+    </div>
+    <button class="my-2 my-sm-0 w-50" type="submit">
+      <!-- Aqui será o botão de voltar -->
+    </button>
+  </form>
+
+  <!-- Scroll horizontal nas categorias -->
+  <section class="d-flex p-3 overflow-auto gap-2 text-center" style="white-space: nowrap;">
+    <div *ngFor="let item of items" class="card-body bg-grill rounded-4 p-4 d-inline-block"
+      [ngClass]="{'selected': selectedCard === item}" [style.backgroundImage]="'url(' + item.imageUrl + ')'"
+      (click)="selectCard(item)">
+      <p class="card-text h6">{{ item.label }}</p>
+    </div>
+  </section>
+
+  <section class="mt-3">
+    <article class="text-center" *ngIf="!selectedCard">
+      <div class="d-flex justify-content-center p-3 my-2 align-items-center">
+        <div class="rounded-circle bg-grill" style="width: 6.5rem; height: 6.5rem;">
+          <img src="assets/glasses.png" class="h-50">
+        </div>
+      </div>
+      <h6 class="mt-2">Qual o pedido de hoje?</h6>
+      <p class="text-center w-75 m-auto">Digite alguma palavra relacionada ao produto que você procura</p>
+    </article>
+
+    <app-categories [selectedCategory]="selectedCard?.label"></app-categories>
+  </section>
+
+</main>
