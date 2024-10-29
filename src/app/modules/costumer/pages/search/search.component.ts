@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideMenuComponent } from '../../components/side-menu/side-menu.component';
 
 @Component({
   selector: 'app-search',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
+
+
   items = [
     { label: 'Entradas', imageUrl: 'assets/costumer/search/entradas.jpg' },
     { label: 'Prato Principal', imageUrl: 'assets/costumer/search/prato_principal.jpg' },
