@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
-    EmployeeRegisterComponent
+    EmployeeRegisterComponent,
     ProductsComponent,
     CategoryTableComponent,
     CategoriesComponent,
