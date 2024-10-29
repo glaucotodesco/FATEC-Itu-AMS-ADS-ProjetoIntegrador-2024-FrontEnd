@@ -24,16 +24,14 @@ import { HomeComponent } from './pages/home/home.component';
     OrderRegisterComponent,
     CreateOrderComponent,
     AddCashComponent,
-    SelectOrderComponent
+    SelectOrderComponent,
+    CloseRegisterComponent,
   ],
   imports: [
     CommonModule,
     CheckoutRoutingModule,
     SharedModule,
-    FormsModule
-    CloseRegisterComponent
-  ],
-  imports: [
+    FormsModule,
     CommonModule,
     RouterModule,
     NgbModule,
