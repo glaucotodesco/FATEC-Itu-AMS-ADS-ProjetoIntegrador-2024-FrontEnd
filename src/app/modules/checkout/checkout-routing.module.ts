@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { OpenRegisterComponent } from './pages/open-register/open-register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
 
 const routes: Routes = [
+  {path: 'open-register', component: OpenRegisterComponent},
   {path: 'home-checkout', component: HomeComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'order-list', component: OrderListComponent},
@@ -13,11 +15,9 @@ const routes: Routes = [
 
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CheckoutRoutingModule { 
+export class CheckoutRoutingModule {
 
-} 
-
-
+}
