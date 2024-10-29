@@ -4,6 +4,10 @@ import { PrototypeComponent } from './prototype/prototype.component';
 
 const routes: Routes = [
   {
+    path: 'checkout',
+    loadChildren: () => import('./modules/checkout/checkout.module').then(m => m.CheckoutModule)
+  },
+  { 
     path: 'prototype',
     component: PrototypeComponent
   },
@@ -22,10 +26,6 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
-  },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./modules/checkout/checkout.module').then(m => m.CheckoutModule)
   }
 ];
 
