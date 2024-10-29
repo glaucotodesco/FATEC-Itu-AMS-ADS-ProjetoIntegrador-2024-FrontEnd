@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
+import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProductComponent } from './pages/product/product.component';
     HomeComponent,
     AdminNavbarComponent,
     LoginComponent,
-    ProductComponent
+    ProductComponent,
+    RestaurantConfigComponent
   ],
   imports: [
     SharedModule,
