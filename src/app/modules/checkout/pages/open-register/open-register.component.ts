@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-open-register',
   templateUrl: './open-register.component.html',
-  styleUrl: './open-register.component.css'
+  styleUrls: ['./open-register.component.css']
 })
 export class OpenRegisterComponent {
-salvar() {
-    const valorInicial = (document.getElementById('valorInicial') as HTMLInputElement).value;
-    alert('Valor salvo: R$ ' + valorInicial);
+  save() {
+    const initialValue = (document.getElementById('initialValue') as HTMLInputElement).value;
+    alert('Value saved: R$ ' + initialValue);
 
-    const valorTotal = valorInicial ? 'R$ ' + parseFloat(valorInicial).toFixed(2) : 'R$ 0.00';
-    document.getElementById('valorTotal')!.textContent = valorTotal;
+    const totalValue = initialValue ? 'R$ ' + parseFloat(initialValue).toFixed(2) : 'R$ 0.00';
+    document.getElementById('totalValue')!.textContent = totalValue;
   }
 }
