@@ -19,6 +19,8 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
+import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
+import { SquaresComponent } from './pages/squares/squares.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-
     AdminNavbarComponent,
     LoginComponent,
     ProductComponent,
-    RestaurantConfigComponent
+    RestaurantConfigComponent,
+    EmployeeTableComponent,
+    SquaresComponent
   ],
   imports: [
     CommonModule,
