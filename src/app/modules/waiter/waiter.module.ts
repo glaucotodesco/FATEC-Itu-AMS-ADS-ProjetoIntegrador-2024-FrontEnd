@@ -8,6 +8,7 @@ import { OrderAddonsComponent } from './components/order-addons/order-addons.com
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TotalComponent } from './components/total/total.component';
 import { SharedModule } from '../../shared/shared.module';
+import { OrderTicketsComponent } from './pages/order-tickets/order-tickets.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SharedModule } from '../../shared/shared.module';
     OrderAddonsComponent,
     TotalComponent,
     NavbarComponent,
+    OrderTicketsComponent,
 
   ],
   imports: [
