@@ -1,0 +1,50 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ product?.name }}
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="closeModal()"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img [src]="product?.image" class="img-fluid" alt="item image" />
+        <p>{{ product?.description }}</p>
+        <p class="fw-bold">{{ product?.price | currency }}</p>
+
+        <div class="my-3">
+          <h5>Adicionais:</h5>
+          <ul class="list-group ">
+            <li *ngFor="let additional of product?.additions" class="list-group-item">
+              <label for="{{ additional.name.replace(' ', '-') }}">
+                &nbsp;{{ additional.name }} (+R$ {{ additional.price }})
+              </label>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary m-auto"
+            (click)="closeModal()"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
