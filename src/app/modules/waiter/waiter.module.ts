@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TotalComponent } from './components/total/total.component';
 import { SharedModule } from '../../shared/shared.module';
 import { OrderTicketsComponent } from './pages/order-tickets/order-tickets.component';
+import { MenuNavbarComponent } from './components/menu-navbar/menu-navbar.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { OrderTicketsComponent } from './pages/order-tickets/order-tickets.compo
     TotalComponent,
     NavbarComponent,
     OrderTicketsComponent,
+    MenuNavbarComponent,
 
   ],
   imports: [
