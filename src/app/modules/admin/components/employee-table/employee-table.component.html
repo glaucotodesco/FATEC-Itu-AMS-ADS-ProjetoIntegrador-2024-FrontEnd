@@ -12,49 +12,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let e of employees">
 
-            <td>Romulo</td>
-            <td><span class="badge text-bg-success">online</span></td>
+
+            <td>{{e.name}}</td>
+            <td>
+                <span *ngIf="e.status==1" class="badge text-bg-success">online</span>
+                <span *ngIf="e.status==2" class="badge text-bg-danger">offline</span>
+                <span *ngIf="e.status==3" class="badge text-bg-warning">bloqueado</span>
+            </td>
             <td>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch">
-                </div>
-            </td>
-            <td> <button type="button" class="btn btn-secondary me-1">
-                <i class="bi bi-pencil-square"></i>
-            </button>
-            <button type="button" class="btn btn-danger">
-                <i class="bi bi-trash-fill"></i>
-            </button>
-
-        </tr>
-        <tr>
-
-            <td>Iara</td>
-            <td><span class="badge text-bg-danger">offline</span></td>
-            <td>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-
-                </div>
-            </td>
-            <td> <button type="button" class="btn btn-secondary me-1">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button type="button" class="btn btn-danger">
-                    <i class="bi bi-trash-fill"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-
-            <td>Diogenes</td>
-            <td><span class="badge text-bg-warning">bloqueado</span></td>
-            <td>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch">
-                </div>
+                    <input class="form-check-input" type="checkbox" role="switch" [checked]="e.block">
+                </div> 
             </td>
             <td>
                 <button type="button" class="btn btn-secondary me-1">
