@@ -8,12 +8,18 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { EmployeeRegisterComponent } from "./pages/employee-register/employee-register.component";
 import { RestaurantConfigComponent } from "./pages/restaurant-config/restaurant-config.component";
+import { EmployeesComponent } from './pages/employees/employees.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
+      {
+        path: 'employees',
+        component: EmployeesComponent
+      },
       {
         path: 'products',
         component: ProductsComponent
@@ -31,8 +37,8 @@ const routes: Routes = [
         component: RestaurantConfigComponent
       },
       {
-        path: "dashboard",
-        component: HomeComponent
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
         path: "about-us",

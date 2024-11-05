@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-order-addons',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './order-addons.component.css'
 })
 export class OrderAddonsComponent {
+  @Input()
+  showSelectButton: boolean = false
+
   prods = [
     { id: 1, name: "Cebola", price: 0, status: true },
     { id: 2, name: "Tomate", price: 0, status: true },
