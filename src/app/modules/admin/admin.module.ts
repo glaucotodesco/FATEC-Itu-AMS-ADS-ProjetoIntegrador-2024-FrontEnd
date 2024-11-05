@@ -18,10 +18,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
+import { OrderConfigComponent } from './components/order-config/order-config.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
+
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     AdminNavbarComponent,
     ProductComponent,
     RestaurantConfigComponent,
+    OrderConfigComponent,
     EmployeeTableComponent,
     EmployeesComponent,
     DashboardComponent,
