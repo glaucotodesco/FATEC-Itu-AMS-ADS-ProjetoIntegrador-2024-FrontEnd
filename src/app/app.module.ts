@@ -9,6 +9,8 @@ import { registerLocaleData } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { PrototypeComponent } from './prototype/prototype.component';
+import { AdminModule } from './modules/admin/admin.module';
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -22,7 +24,8 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     CheckoutModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    AdminModule
    ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-total',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './total.component.css'
 })
 export class TotalComponent {
+  @Input()
+  showSubTitle: boolean = false
 
+  @Input()
+  showModal: boolean = false
 }

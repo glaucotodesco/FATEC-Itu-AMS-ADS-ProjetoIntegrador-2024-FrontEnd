@@ -1,11 +1,14 @@
-<div>
-    <hr>
-    <div class="row px-1 my-3 d-flex align-items-center ">
-        <div class="col-7">
-            <label class="fs-4">Total: R$49.99</label>
-        </div>
-        <div class="col-5">
-            <button type="button" class="btn btn-primary p-2 w-100 fs-5 rounded-3">Enviar</button>
-        </div>
+<footer class="sticky-bottom p-3 pt-1 bg-white">
+  <hr>
+  <div class="row d-flex align-items-center">
+    <div class="col-7">
+      <label class="fs-4">Total: R$49.99</label>
+      <div *ngIf="showSubTitle">
+        <label class="fs-6">Sub-Total: R$39.99</label>
+      </div>
     </div>
-</div>
+    <div class="col-5">
+      <button class="btn btn-primary p-2 w-100 fs-5 rounded-3" routerLink="/waiter/ticket">Enviar</button>
+    </div>
+  </div>
+</footer>
