@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-checkout',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent {
-
+  openModal(modal : ModalComponent) {
+    modal.open();
+  }
 }
