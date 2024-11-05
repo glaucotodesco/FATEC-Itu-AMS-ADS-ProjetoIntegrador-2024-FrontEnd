@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { ProductComponent } from './pages/product/product.component';
     HomeComponent,
     AdminNavbarComponent,
     LoginComponent,
-    ProductComponent
+    ProductComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -47,11 +50,14 @@ import { ProductComponent } from './pages/product/product.component';
     RouterModule, 
     NgbAccordionModule,
     SharedModule,
-
     NgbModule,
   ],
   
-  exports:[]
+  exports:[
+    
+
+
+  ]
 
 })
 export class AdminModule { }

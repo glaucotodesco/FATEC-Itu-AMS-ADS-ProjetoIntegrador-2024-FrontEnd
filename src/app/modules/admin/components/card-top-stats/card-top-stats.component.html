@@ -1,41 +1,72 @@
-<div class=" p-2 p-xl-3 d-flex" *ngIf="num == 1">
+<div class=" p-2 p-xl-3 d-flex rounded " *ngIf="num == 1">
   <div class="p-1 p-sm-4">
-      <i class="bi bi-list-check fs-1"></i>
-
+    <i class="bi bi-list-check fs-1"></i>
+  </div>
+  <div class="p-1 p-sm-4 ">
+    <span style="font-size: 50px; font-weight: 500;">1</span>
+    <span>horas p/ pedido</span>
+    <p>Tempo de consumação</p>
 
   </div>
-  <div class="p-1 p-sm-4">
-      <span style="font-size: 50px; font-weight: 500;">1</span>
-      <span>horas p/ pedido</span>
-      <p>Tempo de consumação</p>
-
-  </div>
-
-
-
-
-
 </div>
-<div class=" container-md d-flex p-2 p-xl-3" *ngIf="num == 2">
+
+
+<div class=" p-2 p-xl-3 d-flex rounded " *ngIf="num == 2">
   <div class=" p-1 p-sm-4">
-      <i class="bi bi-check-circle fs-1" ></i>
+    <i class="bi bi-check-circle fs-1"></i>
   </div>
   <div class="p-1 p-sm-4">
-      <span style="font-size: 50px; font-weight: 500;">65</span>
-      <p>Quantidade de pedidos</p>
+    <span style="font-size: 50px; font-weight: 500;">65</span>
+    <p>Quantidade de pedidos</p>
+  </div>
+
+</div>
+
+
+<div class=" h-100 p-2 p-xl-3 d-flex rounded " *ngIf="num == 3">
+  <div class="p-1 p-sm-4">
+    <i class="bi bi-box-seam fs-1"></i>
+  </div>
+  <div class="p-1 p-sm-4">
+    <span style="font-size: 50px; font-weight: 500;">3</span>
+    <p>Itens por pedido</p>
+  </div>
+
+
+</div>
+
+
+<div class="h-100 container rounded text-center" *ngIf="num == 4">
+  <div class="p-5">
+    <i class="bi bi-info-circle-fill " style="font-size: 50px;"></i>
+
+    <p style="color: black;">Sobre nós</p>
+  </div>
+
+ 
+</div>
+<!-- 
+<div class=" container-md d-flex p-2 p-xl-3 rounded "*ngIf="num == 2">
+  <div class=" p-1 p-sm-4">
+    <i class="bi bi-check-circle fs-1"></i>
+  </div>
+  <div class="p-1 p-sm-4">
+    <span style="font-size: 50px; font-weight: 500;">65</span>
+    <p>Quantidade de pedidos</p>
   </div>
 
 
 
 
 </div>
-<div class="container-md d-flex p-3" *ngIf="num == 3">
+
+<div class="container-md d-flex p-3 d-flex rounded" *ngIf="num == 3">
   <div class="p-1 p-sm-4">
-      <i class="bi bi-box-seam fs-1" ></i>
+    <i class="bi bi-box-seam fs-1"></i>
   </div>
   <div class="p-1 p-sm-4">
-      <span style="font-size: 50px; font-weight: 500;">3</span>
-      <p>Itens por pedido</p>
+    <span style="font-size: 50px; font-weight: 500;">3</span>
+    <p>Itens por pedido</p>
   </div>
 
 
@@ -43,14 +74,15 @@
 
 
 </div>
+
 <div class=" rounded   text-center " *ngIf="num == 4">
   <div class="p-4">
-      <i class="bi bi-info-circle-fill" style="font-size: 50px;"></i>
+    <i class="bi bi-info-circle-fill" style="font-size: 50px;"></i>
 
-  <p style="color: black;">Sobre nós</p>
+    <p style="color: black;">Sobre nós</p>
   </div>
 
+ 
 
 
-
-</div>
+</div> -->
