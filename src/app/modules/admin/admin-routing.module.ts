@@ -9,6 +9,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { EmployeeRegisterComponent } from "./pages/employee-register/employee-register.component";
 import { RestaurantConfigComponent } from "./pages/restaurant-config/restaurant-config.component";
 import { SquaresComponent } from './pages/squares/squares.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -36,8 +37,8 @@ const routes: Routes = [
         component: RestaurantConfigComponent
       },
       {
-        path: "dashboard",
-        component: HomeComponent
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
         path: "about-us",

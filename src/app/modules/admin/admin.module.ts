@@ -21,6 +21,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { SquaresComponent } from './pages/squares/squares.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -45,7 +46,10 @@ import { SquaresComponent } from './pages/squares/squares.component';
     ProductComponent,
     RestaurantConfigComponent,
     EmployeeTableComponent,
-    SquaresComponent
+    SquaresComponent,
+    DashboardComponent
+    
+    
   ],
   imports: [
     CommonModule,
