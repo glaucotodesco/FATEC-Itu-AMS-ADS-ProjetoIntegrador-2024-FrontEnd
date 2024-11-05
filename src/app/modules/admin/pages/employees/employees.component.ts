@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './employees.component.css'
 })
 export class EmployeesComponent {
-  examplewaiter = [
+  exampleWaiter = [
     {
       name: "Romulo",
       status: 1,
@@ -33,6 +33,19 @@ export class EmployeesComponent {
     {
       name: "Julio",
       status: 2,
+      block: false,
+    },
+  ]
+
+  exampleManager = [
+    {
+      name: "Pietro",
+      status: 2,
+      block: false,
+    },
+    {
+      name: "Carla",
+      status: 1,
       block: false,
     },
   ]

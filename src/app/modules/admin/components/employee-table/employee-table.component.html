@@ -28,7 +28,11 @@
         </div>
       </td>
       <td>
-        <button type="button" class="btn btn-secondary me-1">
+        <button
+          type="button"
+          class="btn btn-secondary me-1"
+          routerLink="/admin/employee"
+        >
           <i class="bi bi-pencil-square"></i>
         </button>
         <button type="button" class="btn btn-danger">
@@ -38,3 +42,22 @@
     </tr>
   </tbody>
 </table>
+<div class="d-flex justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link">1</a></li>
+      <li class="page-item"><a class="page-link">2</a></li>
+      <li class="page-item"><a class="page-link">3</a></li>
+      <li class="page-item">
+        <a class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
