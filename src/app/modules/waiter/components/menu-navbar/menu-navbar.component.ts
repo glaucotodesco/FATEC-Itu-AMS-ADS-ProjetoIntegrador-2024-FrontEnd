@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu-navbar',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './menu-navbar.component.css'
 })
 export class MenuNavbarComponent {
-
+  @Input()
+  goBackScreenButton ?: string
 }

@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class TotalComponent {
   @Input()
   showSubTitle: boolean = false
+
+  @Input()
+  showModal: boolean = false
 }
