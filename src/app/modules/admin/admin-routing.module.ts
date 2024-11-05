@@ -8,12 +8,17 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { EmployeeRegisterComponent } from "./pages/employee-register/employee-register.component";
 import { RestaurantConfigComponent } from "./pages/restaurant-config/restaurant-config.component";
+import { SquaresComponent } from './pages/squares/squares.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
+      {
+        path: 'squares',
+        component: SquaresComponent
+      },
       {
         path: 'products',
         component: ProductsComponent
