@@ -19,9 +19,11 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
+import { OrderConfigComponent } from './components/order-config/order-config.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -44,8 +46,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoginComponent,
     ProductComponent,
     RestaurantConfigComponent,
+    OrderConfigComponent,
     EmployeeTableComponent,
-    EmployeesComponent
+    EmployeesComponent,
     DashboardComponent
   ],
   imports: [
