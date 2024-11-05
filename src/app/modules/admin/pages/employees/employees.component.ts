@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-squares',
-  templateUrl: './squares.component.html',
-  styleUrl: './squares.component.css'
+  selector: 'app-employees',
+  templateUrl: './employees.component.html',
+  styleUrl: './employees.component.css'
 })
-export class SquaresComponent {
-  examplewaiter = [
+export class EmployeesComponent {
+  exampleWaiter = [
     {
       name: "Romulo",
       status: 1,
@@ -37,4 +37,16 @@ export class SquaresComponent {
     },
   ]
 
+  exampleManager = [
+    {
+      name: "Pietro",
+      status: 2,
+      block: false,
+    },
+    {
+      name: "Carla",
+      status: 1,
+      block: false,
+    },
+  ]
 }

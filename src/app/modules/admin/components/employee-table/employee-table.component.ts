@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class EmployeeTableComponent {
 
-  @Input() 
-employees: any = [] 
+  @Input()
+  employees: any = []
 
 }

@@ -20,13 +20,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
-import { SquaresComponent } from './pages/squares/squares.component';
+import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
-
     HomeComponent,
     CardTopStatsComponent,
     CardMediumStatsComponent,
@@ -46,21 +45,18 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ProductComponent,
     RestaurantConfigComponent,
     EmployeeTableComponent,
-    SquaresComponent,
+    EmployeesComponent
     DashboardComponent
-    
-    
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    RouterModule, 
+    RouterModule,
     NgbAccordionModule,
     SharedModule,
-
     NgbModule,
   ],
-  
+
   exports:[]
 
 })

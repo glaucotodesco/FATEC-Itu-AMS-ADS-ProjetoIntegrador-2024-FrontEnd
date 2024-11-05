@@ -18,7 +18,6 @@ registerLocaleData(localePt, 'pt');
   declarations: [
     AppComponent,
     PrototypeComponent,
-  
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<div class="container mb-5 mt-3">
+  <p class="display-6">Garçons</p>
+  <!--<div class="row"> TODO Change the place of this option
+      <p class="col-1">Gorjeta:</p> <input type="number" class="form-control col">
+  </div>-->
+  <app-employee-table [employees]="exampleWaiter"></app-employee-table>
+  <p class="display-6">Caixas</p>
+  <app-employee-table [employees]="exampleCheckout"></app-employee-table>
+  <p class="display-6">Gerentes</p>
+  <app-employee-table [employees]="exampleManager"></app-employee-table>
+  <button type="button" class="btn btn-primary" routerLink="/admin/employee">Novo funcionário</button>
+</div>
