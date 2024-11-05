@@ -1,5 +1,13 @@
-<app-navbar></app-navbar>
+<app-navbar/>
 <div class="container">
-    <app-order-addons></app-order-addons>
-    <app-total></app-total>
+  <p class="mx-1 my-3">
+    Hambúrguer no macio pão australiano, com suculenta carne grelhada, queijo derretido e uma cremosa camada de
+    guacamole fresco. Finalizado com maionese artesanal para equilibrar os sabores. Simplesmente irresistível!
+  </p>
+  <hr>
+</div>
+<div class="container">
+  <app-order-addons [showSelectButton]="true"/>
+  <app-addon-observation/>
+  <app-total></app-total>
 </div>
