@@ -10,6 +10,12 @@ export class ModalComponent {
   @Input()
   title !: string;
 
+  @Input()
+  okTextButton ?: string ;
+
+  @Input()
+  cancelTextButton ?: string;
+
   @ViewChild('modal')
   private modalContent !: TemplateRef<ModalComponent>;
 
