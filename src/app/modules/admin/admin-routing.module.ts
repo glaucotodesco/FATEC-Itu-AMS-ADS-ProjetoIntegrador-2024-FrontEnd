@@ -33,7 +33,7 @@ const routes: Routes = [
         component: EmployeeRegisterComponent
       },
       {
-        path: 'restaurant',
+        path: 'tables',
         component: RestaurantConfigComponent
       },
       {
