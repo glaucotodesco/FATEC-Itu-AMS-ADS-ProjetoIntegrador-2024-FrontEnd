@@ -19,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './pages/main/main.component';
 import { RemoveTabsComponent } from './components/remove-tabs/remove-tabs.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     NavbarComponent,
     MainComponent,
     RemoveTabsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

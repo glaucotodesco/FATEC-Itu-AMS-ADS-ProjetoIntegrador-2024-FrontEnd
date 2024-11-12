@@ -1,48 +1,93 @@
-<div class="col-md-12 border p-3 mb-12">
-  <form>
-    <div class="form-row">
-      <div class="form-group col-md-12">
-        <label for="comanda">Comanda</label>
-        <input type="text" class="form-control" id="comanda">
-      </div>
-      <div class="form-group col-md-12">
-        <label for="tipoPedido">Tipo de Pedido</label>
-        <select class="form-control" id="tipoPedido">
-          <option value="balcao">Balcão</option>
-          <option value="balcao">Mesa</option>
-        </select>
-      </div>
-      <div class="form-group col-md-12">
-        <label for="categoria">Categoria</label>
-        <select class="form-control" id="categoria" (change)="onCategoriaChange($event)">
-          <option value="pratoPrincipal">Prato Principal</option>
-          <option value="sobremesa">Sobremesa</option>
-          <option value="bebida">Bebida</option>
-        </select>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text"></p>
+<!-- Controle de Paginação -->
+<ul class="pagination mb-3">
+  <li class="page-item" [class.active]="paginaAtiva === 1">
+    <a class="page-link" (click)="mudarPagina(1)">Adicionar Pedido</a>
+  </li>
+  <li class="page-item" [class.active]="paginaAtiva === 2">
+    <a class="page-link" (click)="mudarPagina(2)">Pedidos Existentes</a>
+  </li>
+</ul>
 
-          <div class="mb-3">
-            <label for="exampleFormControl" class="form-label">Itens</label>
-            <textarea class="form-control" id="exampleFormControl" rows="5" readonly>
-          Item 1: R$ 10,00
-          Item 2: R$ 5,00
-          Item 3: R$ 15,00
-          Item 4: R$ 10,00
-          Item 5: R$ 5,00
-            </textarea>
-          </div>
-          <div class="summary">
-            <h5>Total da Comanda: R$ <span id="total-comanda">45,00</span></h5>
-          </div>
-          <button type="submit" class="btn btn-success w-100 btn-sm">Editar Registro</button>
+<!-- Página de Adicionar Pedido -->
+<div *ngIf="paginaAtiva === 1">
+  <h5>Adicionar Novo Pedido</h5>
+
+  <div class="mb-2">
+    <label for="numeroComandaInput" class="form-label">Número da Comanda</label>
+    <input type="text" class="form-control form-control-sm" id="numeroComandaInput" [(ngModel)]="numeroComanda" placeholder="Digite o número da comanda">
+  </div>
+
+  <div class="mb-2">
+    <label for="tipoPedidoSelect" class="form-label">Tipo de Pedido</label>
+    <select class="form-select form-select-sm" id="tipoPedidoSelect" [(ngModel)]="tipoPedido">
+      <option value="mesa">Mesa</option>
+      <option value="balcao">Balcão</option>
+    </select>
+  </div>
+
+  <div class="mb-2">
+    <label for="categoriaSelect" class="form-label">Categoria</label>
+    <select class="form-select form-select-sm" id="categoriaSelect" [(ngModel)]="categoriaSelecionada">
+      <option value="pratosPrincipais">Prato Principal</option>
+      <option value="sobremesas">Sobremesa</option>
+      <option value="bebidas">Bebidas</option>
+    </select>
+  </div>
+
+  <!-- Pesquisa de Produtos -->
+  <div *ngIf="categoriaSelecionada" class="mb-2">
+    <label for="produtoInputPesquisa" class="form-label">Pesquisar Produto</label>
+    <input type="text" class="form-control form-control-sm" [(ngModel)]="pesquisa" placeholder="Digite o nome do produto">
+
+    <div *ngIf="pesquisa">
+      <div *ngIf="categoriaSelecionada === 'pratosPrincipais'">
+        <div *ngFor="let produto of filtrarProdutos(pratosPrincipais)">
+          <h6 class="card-title">{{ produto.nome }}</h6>
+          <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+          <button class="btn btn-primary btn-sm" (click)="adicionarProduto(produto)">Adicionar</button>
+        </div>
+      </div>
+      <div *ngIf="categoriaSelecionada === 'sobremesas'">
+        <div *ngFor="let produto of filtrarProdutos(sobremesas)">
+          <h6 class="card-title">{{ produto.nome }}</h6>
+          <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+          <button class="btn btn-primary btn-sm" (click)="adicionarProduto(produto)">Adicionar</button>
+        </div>
+      </div>
+      <div *ngIf="categoriaSelecionada === 'bebidas'">
+        <div *ngFor="let produto of filtrarProdutos(bebidas)">
+          <h6 class="card-title">{{ produto.nome }}</h6>
+          <p class="card-text">R$ {{ produto.preco.toFixed(2) }}</p>
+          <button class="btn btn-primary btn-sm" (click)="adicionarProduto(produto)">Adicionar</button>
         </div>
       </div>
     </div>
-  </form>
+  </div>
+
+  <h6 class="mt-2">Produtos Adicionados</h6>
+  <ul class="list-group mb-2">
+    <li *ngFor="let produto of produtosAdicionados" class="list-group-item d-flex justify-content-between">
+      {{ produto.quantidade }} x {{ produto.nome }} - R$ {{ (produto.preco * produto.quantidade).toFixed(2) }}
+      <button class="btn btn-danger btn-sm" (click)="removerProduto(produto)">Excluir</button>
+    </li>
+  </ul>
+
+  <button type="submit" class="btn btn-primary w-100 btn-sm" (click)="salvarPedido()">Adicionar Pedido</button>
+</div>
+
+<!-- Página de Pedidos Existentes -->
+<div *ngIf="paginaAtiva === 2">
+  <h5>Pedido 1</h5>
+  <ul class="list-group">
+    <li *ngFor="let pedido of pedidosExistentes" class="list-group-item">
+      <strong>Comanda:</strong> {{ pedido.numeroComanda }} | 
+      <strong>Tipo:</strong> {{ pedido.tipoPedido }} | 
+      <strong>Produtos:</strong>
+      <ul>
+        <li *ngFor="let produto of pedido.produtos">
+          {{ produto.quantidade }} x {{ produto.nome }} - R$ {{ (produto.preco * produto.quantidade).toFixed(2) }}
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

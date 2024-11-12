@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OpenRegisterComponent } from './pages/open-register/open-register.component';
+import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'checkout',
         component: CheckoutComponent
+      },
+      {
+        path: 'open-register',
+        component: OpenRegisterComponent
       },
       {
         path: 'order-list',
@@ -37,7 +42,7 @@ const routes: Routes = [
   },
   {
       path: 'main',
-      component: OpenRegisterComponent
+      component: LoginComponent
     }
   ];
 @NgModule({
