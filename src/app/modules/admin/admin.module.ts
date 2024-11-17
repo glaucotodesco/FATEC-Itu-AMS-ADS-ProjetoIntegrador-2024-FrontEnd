@@ -39,10 +39,6 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     CategoryTableComponent,
     CategoriesComponent,
     EmployeeRegisterComponent,
-    ProductsComponent,
-    CategoryTableComponent,
-    CategoriesComponent,
-    HomeComponent,
     AdminNavbarComponent,
     ProductComponent,
     RestaurantConfigComponent,
@@ -51,7 +47,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     EmployeesComponent,
     DashboardComponent,
     SquaresComponent,
-    SquareTableComponent
+    SquareTableComponent,
     LoginAdminComponent
   ],
   imports: [
