@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-squares',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './squares.component.css'
 })
 export class SquaresComponent {
-
+  openModal(modalForm: ModalComponent, params : any = {}){
+    modalForm.open(params);
+  }
 }

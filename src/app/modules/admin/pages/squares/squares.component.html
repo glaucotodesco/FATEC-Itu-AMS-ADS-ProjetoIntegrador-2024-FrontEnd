@@ -1,8 +1,40 @@
 <section class="container mt-3">
   <h1 class="display-6">Praças</h1>
   <div class="d-flex justify-content-end bg-white py-2">
-    <button type="button" class="btn btn-primary me-3">Novo</button>
+    <button type="button" class="btn btn-primary me-3" (click)="openModal(modalSquareAdd)">Novo</button>
   </div>
-  <app-square-table></app-square-table>
-  <app-square-table></app-square-table>
+  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)"></app-square-table>
+  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)"></app-square-table>
 </section>
+
+<app-modal #modalItemAdd [title]="'Adicionar Item'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalItemEdit [title]="'Editar Item'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalSquareAdd [title]="'Adicionar Praça'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalSquareEdit [title]="'Editar Praça'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalItemDelete [title]="'Deletar Item'">
+  <p>Tem certeza que deseja deletar esse item?</p>
+</app-modal>

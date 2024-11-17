@@ -1,6 +1,6 @@
 <div class="d-flex">
   <h2>Fritura</h2>
-  <button type="button" class="btn">
+  <button type="button" class="btn" (click)="editSquare()">
     <i class="bi bi-pencil-square"></i>
   </button>
 </div>
@@ -15,17 +15,17 @@
     <tr>
       <td>B. Fritas</td>
       <td>
-        <button type="button" class="btn btn-secondary me-2">
+        <button type="button" class="btn btn-secondary me-2" (click)="edit()">
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" (click)="remove()">
           <i class="bi bi-trash-fill"></i>
         </button>
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" (click)="add()">
           <i class="bi bi-plus-lg"></i>
         </button>
       </td>
