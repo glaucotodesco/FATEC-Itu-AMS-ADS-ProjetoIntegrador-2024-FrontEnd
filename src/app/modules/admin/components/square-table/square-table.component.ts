@@ -10,6 +10,9 @@ export class SquareTableComponent {
   editSquareEmitter = new EventEmitter();
 
   @Output()
+  removeSquareEmitter = new EventEmitter();
+
+  @Output()
   addEmitter = new EventEmitter();
 
   @Output()
@@ -20,6 +23,10 @@ export class SquareTableComponent {
 
   editSquare(){
     this.editSquareEmitter.emit();
+  }
+
+  removeSquare(){
+    this.removeSquareEmitter.emit();
   }
 
   add(){

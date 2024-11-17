@@ -3,8 +3,8 @@
   <div class="d-flex justify-content-end bg-white py-2">
     <button type="button" class="btn btn-primary me-3" (click)="openModal(modalSquareAdd)">Novo</button>
   </div>
-  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)"></app-square-table>
-  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)"></app-square-table>
+  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)" (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
+  <app-square-table (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)" (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
 </section>
 
 <app-modal #modalItemAdd [title]="'Adicionar Item'">
@@ -37,4 +37,8 @@
 
 <app-modal #modalItemDelete [title]="'Deletar Item'">
   <p>Tem certeza que deseja deletar esse item?</p>
+</app-modal>
+
+<app-modal #modalSquareDelete [title]="'Deletar Praça'">
+  <p>Tem certeza que deseja deletar essa praça?</p>
 </app-modal>
