@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-square-table',
@@ -40,4 +40,7 @@ export class SquareTableComponent {
   remove(){
     this.removeEmitter.emit();
   }
+
+  @Input()
+  square: any = {}
 }

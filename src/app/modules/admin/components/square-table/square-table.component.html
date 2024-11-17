@@ -1,9 +1,9 @@
 <div class="d-flex">
-  <h2>Fritura</h2>
+  <h2>{{square.square}}</h2>
   <button type="button" class="btn" (click)="editSquare()">
     <i class="bi bi-pencil-square"></i>
   </button>
-  <button type="button" class="btn btn-danger" style="margin-left: 84%;" (click)="removeSquare()">
+  <button type="button" class="btn btn-danger" style="margin-left: 80%;" (click)="removeSquare()">
     <i class="bi bi-trash-fill"></i>
   </button>
 </div>
@@ -15,8 +15,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>B. Fritas</td>
+    <tr *ngFor="let i of square.items">
+      <td>{{i.name}}</td>
       <td>
         <button type="button" class="btn btn-secondary me-2" (click)="edit()">
           <i class="bi bi-pencil-square"></i>
