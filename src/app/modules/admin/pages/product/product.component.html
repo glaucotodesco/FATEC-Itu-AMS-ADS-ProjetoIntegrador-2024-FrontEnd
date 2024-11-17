@@ -16,6 +16,10 @@
         <div class="input-group mb-3">
           <input type="file" class="form-control" id="imageInput">
         </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="activeSwitch" [checked]="true">
+          <label class="form-check-label" for="activeSwitch">Disponivel</label>
+        </div>
       </div>
       <div class="col-6">
         <div class="form-floating mb-3">
@@ -75,6 +79,67 @@
         </table>
       </div>
     </div>
+    <p>Opcionais:</p>
+    <table class="table table-borderless table-striped">
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Disponivel</th>
+          <th scope="col">Praça</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Feijão</td>
+          <td>R$ 0,00</td>
+          <td>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" [checked]="true">
+            </div>
+          </td>
+          <td>
+            <span class="badge rounded-pill text-bg-success">Assados</span>
+          </td>
+          <td>
+            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalAddon)">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Molho Especial</td>
+          <td>R$ 15,00</td>
+          <td>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" [checked]="true">
+            </div>
+          </td>
+          <td>
+            <span class="badge rounded-pill text-bg-success">Assados</span>
+          </td>
+          <td>
+            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalAddon)">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button (click)="openModal(modalAddon)" type="button" class="btn btn-primary">+</button></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </form>
 </section>
 
@@ -88,5 +153,31 @@
       <input class="form-check-input" type="checkbox" value="" checked>
       <span class="badge rounded-pill text-bg-success ms-2">Assados</span>
     </a>
+  </div>
+</app-modal>
+
+<app-modal #modalAddon [title]="'Criar opcional'">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="addonDescription" placeholder=".">
+    <label for="addonDescription">Descrição</label>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">R$</span>
+    <div class="form-floating">
+      <input type="number" class="form-control" id="addonValue" placeholder=".">
+      <label for="addonValue">Preço</label>
+    </div>
+  </div>
+  <div class="form-check form-switch mb-3">
+    <input class="form-check-input" type="checkbox" role="switch" id="activeSwitch" [checked]="true">
+    <label class="form-check-label" for="activeSwitch">Disponivel</label>
+  </div>
+  <div class="form-floating">
+    <select class="form-select" id="floatingSelect" aria-label=".">
+      <option selected>Selecione uma praça</option>
+      <option value="1">Fritura</option>
+      <option value="2">Assados</option>
+    </select>
+    <label for="floatingSelect">Praça</label>
   </div>
 </app-modal>

@@ -8,7 +8,16 @@
       </div>
     </div>
     <div class="col-5">
-      <button class="btn btn-primary p-2 w-100 fs-5 rounded-3" routerLink="/waiter/ticket">Enviar</button>
+      <div *ngIf="showModal">
+        <button class="btn btn-primary p-2 w-100 fs-5 rounded-3" (click)="openModal(sendModal)">Enviar</button>
+      </div>
+      <div *ngIf="!showModal">
+        <button class="btn btn-primary p-2 w-100 fs-5 rounded-3" routerLink="/waiter/menu">Enviar</button>
+      </div>
     </div>
   </div>
 </footer>
+
+<app-modal #sendModal [title]="'Enviar Pedido'" [okTextButton]="'Confirmar'" [cancelTextButton]="'Cancelar'">
+  <p>Tem certeza que deseja Enviar o Pedido para Cozinha?</p>
+</app-modal>

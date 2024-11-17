@@ -14,6 +14,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CheckCloseRegisterComponent } from './components/check-close-register/check-close-register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MainComponent } from './pages/main/main.component';
+import { RemoveTabsComponent } from './components/remove-tabs/remove-tabs.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { LoginComponent } from './pages/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +33,12 @@ import { HomeComponent } from './pages/home/home.component';
     AddCashComponent,
     SelectOrderComponent,
     CloseRegisterComponent,
+    CheckCloseRegisterComponent,
+    NavbarComponent,
+    MainComponent,
+    RemoveTabsComponent,
+    CheckoutComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

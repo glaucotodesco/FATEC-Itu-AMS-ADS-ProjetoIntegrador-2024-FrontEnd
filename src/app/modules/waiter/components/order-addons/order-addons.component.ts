@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-order-addons',
@@ -16,4 +17,8 @@ export class OrderAddonsComponent {
     { id: 4, name: "Hambúrguer Extra", price: 10.99, status: false },
     { id: 5, name: "Molho Extra", price: 4.25, status: false },
   ]
+
+  openModal(modalForm: ModalComponent){
+    modalForm.open();
+  }
 }

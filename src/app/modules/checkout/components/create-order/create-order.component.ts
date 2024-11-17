@@ -26,11 +26,32 @@ export class CreateOrderComponent {
   categoriaSelecionada: string = '';
   // Para armazenar a pesquisa
   pesquisa: string = '';
+  
+  // Lista de produtos adicionados ao pedido
+  produtosAdicionados: { nome: string, preco: number, quantidade: number }[] = [];
 
-  // Método para filtrar os produtos
+  // Método para filtrar os produtos conforme a pesquisa
   filtrarProdutos(produtos: any[]) {
     return produtos.filter(produto => 
       produto.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
     );
+  }
+
+  // Método para adicionar um produto ao pedido
+  adicionarProduto(produto: any) {
+    const produtoExistente = this.produtosAdicionados.find(p => p.nome === produto.nome);
+    if (produtoExistente) {
+      // Se o produto já existe, apenas incrementa a quantidade
+      produtoExistente.quantidade++;
+    } else {
+      // Caso o produto ainda não tenha sido adicionado, cria um novo item
+      this.produtosAdicionados.push({ nome: produto.nome, preco: produto.preco, quantidade: 1 });
+    }
+  }
+
+  // Método para remover um produto do pedido
+  removerProduto(produto: any) {
+    // Remove o produto da lista de produtos adicionados
+    this.produtosAdicionados = this.produtosAdicionados.filter(p => p !== produto);
   }
 }

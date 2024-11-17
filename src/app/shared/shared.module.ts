@@ -4,13 +4,15 @@ import { ModalComponent } from './components/modal/modal.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
 @NgModule({
   declarations: [
     ModalComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
     CommonModule,
     ModalComponent,
     MenuItemComponent,
+    LoginComponent
   ]
 })
 export class SharedModule { }

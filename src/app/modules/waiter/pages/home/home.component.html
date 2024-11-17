@@ -2,7 +2,7 @@
   <header class="p-2 fixed-top shadow">
     <div class="row d-flex justify-content-between">
       <div class="col d-flex align-items-center">
-        <button type="button" class="btn btn-sm btn-danger d-flex align-items-center" routerLink="">
+        <button type="button" class="btn btn-sm btn-danger d-flex align-items-center" routerLink="/waiter/login">
           <i class="bi bi-door-open" style="font-size: 1.3rem"></i>
           <label class="mx-1">Sair</label>
         </button>
@@ -30,8 +30,20 @@
           </div>
         </div>
         <button type="button" class="btn btn-md btn-primary w-100 mb-3" routerLink="/waiter/menu">Fazer Pedido</button>
-        <button type="button" class="btn btn-md btn-outline-primary w-100">Altera Mesa</button>
+        <button type="button" class="btn btn-md btn-outline-primary w-100" (click)="openModal(changeTable)">Altera
+          Mesa</button>
       </div>
     </section>
   </main>
 </div>
+
+<app-modal #changeTable [title]="'Alterar Número da Mesa'" [okTextButton]="'Confirmar'" [cancelTextButton]="'Cancelar'">
+  <div class="mb-4">
+    <label class="col-12 d-flex align-items-center form-label">Novo Número da Mesa</label>
+    <input type="text" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label class="col-12 d-flex align-items-center form-label">Número da Comanda</label>
+    <input type="text" class="form-control" />
+  </div>
+</app-modal>

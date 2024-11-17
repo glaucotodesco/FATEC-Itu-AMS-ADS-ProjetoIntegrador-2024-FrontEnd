@@ -10,13 +10,17 @@
     </div>
     <ng-template #noActionButton>
       <div class="col-5 display-6 text-end">
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" (click)="openModal(deleteModal)">
           <i class="bi bi-trash3"></i>
         </button>
-        <button type="button" class="btn btn-success ms-2">
+        <button type="button" class="btn btn-success ms-2" routerLink="/waiter/order">
           <i class="bi bi-pencil"></i>
         </button>
       </div>
     </ng-template>
   </div>
 </div>
+
+<app-modal #deleteModal [title]="'Deletar Produto'" [okTextButton]="'Confirmar'" [cancelTextButton]="'Cancelar'">
+  <p>Tem certeza que deseja Deletar o Produto?</p>
+</app-modal>

@@ -16,14 +16,15 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { SharedModule } from '../../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
-import { LoginComponent } from './pages/login/login.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RestaurantConfigComponent } from './pages/restaurant-config/restaurant-config.component';
+import { OrderConfigComponent } from './components/order-config/order-config.component';
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SquaresComponent } from './pages/squares/squares.component';
 import { SquareTableComponent } from './components/square-table/square-table.component';
+import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 
 @NgModule({
@@ -43,14 +44,15 @@ import { SquareTableComponent } from './components/square-table/square-table.com
     CategoriesComponent,
     HomeComponent,
     AdminNavbarComponent,
-    LoginComponent,
     ProductComponent,
     RestaurantConfigComponent,
+    OrderConfigComponent,
     EmployeeTableComponent,
     EmployeesComponent,
     DashboardComponent,
     SquaresComponent,
     SquareTableComponent
+    LoginAdminComponent
   ],
   imports: [
     CommonModule,
