@@ -1,13 +1,12 @@
 <app-navbar/>
 <div class="container">
   <p class="mx-1 my-3">
-    Hambúrguer no macio pão australiano, com suculenta carne grelhada, queijo derretido e uma cremosa camada de
-    guacamole fresco. Finalizado com maionese artesanal para equilibrar os sabores. Simplesmente irresistível!
+    Hambúrguer de Frango no pão brioche macio, com filé de frango crocante, alface fresca, tomate suculento e uma cremosa maionese de ervas. Finalizado com nosso molho especial para um sabor único e irresistível!
   </p>
   <hr>
 </div>
 <div class="container">
-  <app-order-addons [showSelectButton]="true"/>
+  <app-order-addons [showSelectButton]="true" [isTicket]="false"/>
   <app-addon-observation/>
-  <app-total></app-total>
+  <app-total [total]="49.99"/>
 </div>

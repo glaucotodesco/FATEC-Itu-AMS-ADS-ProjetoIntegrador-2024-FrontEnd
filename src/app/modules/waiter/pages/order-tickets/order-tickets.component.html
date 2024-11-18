@@ -1,7 +1,7 @@
 <app-menu-navbar [goBackScreenButton]="'/waiter/menu'" />
 
 <div class="p-3">
-  <app-order-addons></app-order-addons>
+  <app-order-addons [isTicket]="true" />
 </div>
 
-<app-total [showSubTitle]="true" [showModal]="true"/>
+<app-total [showSubTitle]="true" [showModal]="true" [total]="119.96" [subTotal]="99.99"/>
