@@ -13,6 +13,12 @@ export class TotalComponent {
   @Input()
   showModal: boolean = false
 
+  @Input()
+  total!: number
+
+  @Input()
+  subTotal!: number
+
   openModal(modalForm: ModalComponent) {
     modalForm.open();
   }
