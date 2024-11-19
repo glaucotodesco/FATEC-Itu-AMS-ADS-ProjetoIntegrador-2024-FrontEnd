@@ -30,6 +30,9 @@ export class ProductComponent {
       {
         name: 'C. Frango',
       },
+      {
+        name: 'Feijão'
+      }
     ],
   ];
 
