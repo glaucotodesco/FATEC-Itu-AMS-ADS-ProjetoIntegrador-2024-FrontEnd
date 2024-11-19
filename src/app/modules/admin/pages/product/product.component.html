@@ -99,7 +99,7 @@
             <span class="badge rounded-pill text-bg-success">Assados</span>
           </td>
           <td>
-            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalAddon)">
+            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalItems)">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-danger">
@@ -193,9 +193,9 @@
 
 <app-modal #modalItems [title]="'Item opcional'">
   <div class="form-floating mb-3">
-    <select class="form-select" id="squareItemSelect" aria-label=".">
-      <option [value]="1">Fritura</option>
-      <option [value]="2">Assados</option>
+    <select #square class="form-select" id="squareItemSelect" aria-label="." (change)="changeItem()">
+      <option value="0">Fritura</option>
+      <option value="1">Assados</option>
     </select>
     <label for="squareItemSelect">Praça</label>
   </div>
