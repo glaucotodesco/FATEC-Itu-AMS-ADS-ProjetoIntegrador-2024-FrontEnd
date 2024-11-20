@@ -23,6 +23,10 @@ import { EmployeeTableComponent } from './components/employee-table/employee-tab
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
+import { AboutUsUpperComponent } from './components/about-us-upper/about-us-upper.component';
+import { AboutUsBottomComponent } from './components/about-us-bottom/about-us-bottom.component';
+import { AboutUsMiddleComponent } from './components/about-us-middle/about-us-middle.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -49,7 +53,12 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     EmployeeTableComponent,
     EmployeesComponent,
     DashboardComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    
+    AboutUsUpperComponent,
+    AboutUsMiddleComponent, 
+    AboutUsBottomComponent
+    
   ],
   imports: [
     CommonModule,
@@ -58,6 +67,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     NgbAccordionModule,
     SharedModule,
     NgbModule,
+    FormsModule
   ],
 
   exports:[]

@@ -1,0 +1,31 @@
+<div class="display-5 mt-5 mb-5 ">
+    <p class="fs-1 fw-2 ">Localização</p>
+    <div class="d-flex row gap-3">
+        <input id="cep" type="number" class="col form-control" [(ngModel)]="cep" maxlength="8" placeholder="CEP" (change)="getCEP()">
+     
+        <input type="text" class="col form-control  " [(ngModel)]="bairro" placeholder="bairro">
+        <input type="text" class="col form-control  " [(ngModel)]="logradouro" placeholder="logradouro">
+        <input type="text" class="col form-control  " placeholder="Número">
+        <select class="col form-select " (change)="getCidade()" [(ngModel)]="estado">
+            <option *ngFor="let uf of data " [value]="uf.sigla">{{ uf.sigla }}</option>
+        </select>
+        <select class="col form-select " [(ngModel)]="cidade" >
+            <option [value]="">{{cidade}}</option>
+            <option *ngFor="let cidadeM of cidades " [value]="cidadeM">{{ cidadeM.nome }}</option>
+        </select>
+        <div *ngIf="error == true" >
+            <small class="text-danger fs-6">CEP inválido</small>
+
+        </div>
+        
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
