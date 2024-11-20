@@ -1,0 +1,43 @@
+<section class="container mt-3">
+  <h1 class="display-6">Praças</h1>
+  <div class="d-flex justify-content-end bg-white py-2">
+    <button type="button" class="btn btn-primary me-3" (click)="openModal(modalSquareAdd)">Novo</button>
+  </div>
+  <app-square-table *ngFor="let s of exampleInfo" [square]="s" (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)" (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
+</section>
+
+<app-modal #modalItemAdd [title]="'Adicionar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalItemEdit [title]="'Editar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalSquareAdd [title]="'Adicionar Praça'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalSquareEdit [title]="'Editar Praça'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInput">
+  </div>
+</app-modal>
+
+<app-modal #modalItemDelete [title]="'Deletar Item'" [okTextButton]="'Deletar'" [cancelTextButton]="'Cancelar'">
+  <p>Tem certeza que deseja deletar esse item?</p>
+</app-modal>
+
+<app-modal #modalSquareDelete [title]="'Deletar Praça'" [okTextButton]="'Deletar'" [cancelTextButton]="'Cancelar'">
+  <p>Tem certeza que deseja deletar essa praça?</p>
+</app-modal>
