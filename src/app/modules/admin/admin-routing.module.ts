@@ -9,6 +9,7 @@ import { EmployeeRegisterComponent } from "./pages/employee-register/employee-re
 import { RestaurantConfigComponent } from "./pages/restaurant-config/restaurant-config.component";
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SquaresComponent } from './pages/squares/squares.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
+      {
+        path: 'squares',
+        component: SquaresComponent
+      },
       {
         path: 'employees',
         component: EmployeesComponent
@@ -33,7 +38,7 @@ const routes: Routes = [
         component: EmployeeRegisterComponent
       },
       {
-        path: 'restaurant',
+        path: 'tables',
         component: RestaurantConfigComponent
       },
       {

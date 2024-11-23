@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-total',
@@ -11,4 +12,14 @@ export class TotalComponent {
 
   @Input()
   showModal: boolean = false
+
+  @Input()
+  total!: number
+
+  @Input()
+  subTotal!: number
+
+  openModal(modalForm: ModalComponent) {
+    modalForm.open();
+  }
 }
