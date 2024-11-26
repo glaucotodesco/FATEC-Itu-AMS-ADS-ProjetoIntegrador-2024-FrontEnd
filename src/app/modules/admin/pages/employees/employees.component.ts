@@ -1,52 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../../services/user.service';
+import { User } from '../../../../interfaces/user';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrl: './employees.component.css'
+  styleUrls: ['./employees.component.css']
 })
-export class EmployeesComponent {
-  exampleWaiter = [
-    {
-      name: "Romulo",
-      status: 1,
-      block: false,
-    },
-    {
-      name: "Iara",
-      status: 2,
-      block: false,
-    },
-    {
-      name: "Diogenes",
-      status: 3,
-      block: true,
-    },
-  ]
+export class EmployeesComponent implements OnInit {
+  // Arrays para armazenar os funcionários filtrados por perfil
+  exampleWaiter: User[] = [];
+  exampleCheckout: User[] = [];
+  exampleManager: User[] = [];
 
-  exampleCheckout = [
-    {
-      name: "Leandra",
-      status: 1,
-      block: false,
-    },
-    {
-      name: "Julio",
-      status: 2,
-      block: false,
-    },
-  ]
+  constructor(private userService: UserService) {}
 
-  exampleManager = [
-    {
-      name: "Pietro",
-      status: 2,
-      block: false,
-    },
-    {
-      name: "Carla",
-      status: 1,
-      block: false,
-    },
-  ]
+  ngOnInit(): void {
+    this.loadEmployees();
+  }
+
+  // Método para carregar todos os funcionários e filtrá-los
+  loadEmployees(): void {
+    this.userService.getUsers().subscribe(
+      (response) => {
+        this.filterEmployeesByProfile(response);
+      },
+      (error) => {
+        console.error('Erro ao carregar funcionários:', error);
+      }
+    );
+  }
+
+  // Método para filtrar os funcionários por perfil
+  filterEmployeesByProfile(employees: User[]): void {
+    this.exampleWaiter = employees.filter(employee => employee.profile === 'GARCOM');
+    this.exampleCheckout = employees.filter(employee => employee.profile === 'CAIXA');
+    this.exampleManager = employees.filter(employee => employee.profile === 'ADMIN');
+  }
 }
