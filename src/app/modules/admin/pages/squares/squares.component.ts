@@ -26,9 +26,9 @@ export class SquaresComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.formGroupSquare = this.formBuilder.group({
-      id: { value: null, disable: true },
+      id: [null],
       name: [''],
-      items: { value: null, disable: true },
+      items: [[]],
     });
   }
 
@@ -45,18 +45,15 @@ export class SquaresComponent implements OnInit {
   saveSquare(modal: ModalComponent) {
     modal.open().then((confirm) => { //Opening the modal
       if (confirm) { //If the user clicks "Ok" on modal
+        console.log(this.square);
         Object.assign(this.square, this.formGroupSquare.value); //Set the new value to aux square
         if (!this.isEditing) {
           this.squareService.save(this.square).subscribe({
-            next: () => {
-              this.loadSquares(); //Bring the new List of squares
-            },
+            next: () => this.loadSquares() //Bring the new List of squares
           });
         } else {
           this.squareService.update(this.square).subscribe({
-            next: () => {
-              this.loadSquares();
-            },
+            next: () => this.loadSquares()
           });
         }
         this.square = {} as Square; //Clear the aux square
