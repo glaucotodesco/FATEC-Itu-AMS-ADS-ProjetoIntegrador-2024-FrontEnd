@@ -28,7 +28,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { AboutUsUpperComponent } from './components/about-us-upper/about-us-upper.component';
 import { AboutUsBottomComponent } from './components/about-us-bottom/about-us-bottom.component';
 import { AboutUsMiddleComponent } from './components/about-us-middle/about-us-middle.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,7 +54,7 @@ import { FormsModule } from '@angular/forms';
     SquareTableComponent,
     LoginAdminComponent,
     AboutUsUpperComponent,
-    AboutUsMiddleComponent, 
+    AboutUsMiddleComponent,
     AboutUsBottomComponent
   ],
   imports: [
@@ -64,6 +64,7 @@ import { FormsModule } from '@angular/forms';
     NgbAccordionModule,
     SharedModule,
     NgbModule,
+    ReactiveFormsModule,
     FormsModule
   ],
 

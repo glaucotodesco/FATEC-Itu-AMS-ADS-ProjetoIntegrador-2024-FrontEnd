@@ -16,6 +16,9 @@ export class ModalComponent {
   @Input()
   cancelTextButton ?: string;
 
+  @Input()
+  okResult : boolean | undefined;
+
   @ViewChild('modal')
   private modalContent !: TemplateRef<ModalComponent>;
 
