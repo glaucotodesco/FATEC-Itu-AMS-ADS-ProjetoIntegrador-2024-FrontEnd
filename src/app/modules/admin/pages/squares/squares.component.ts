@@ -45,7 +45,6 @@ export class SquaresComponent implements OnInit {
   saveSquare(modal: ModalComponent) {
     modal.open().then((confirm) => { //Opening the modal
       if (confirm) { //If the user clicks "Ok" on modal
-        console.log(this.square);
         Object.assign(this.square, this.formGroupSquare.value); //Set the new value to aux square
         if (!this.isEditing) {
           this.squareService.save(this.square).subscribe({
