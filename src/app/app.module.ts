@@ -12,12 +12,14 @@ import { PrototypeComponent } from './prototype/prototype.component';
 import { AdminModule } from './modules/admin/admin.module';
 
 
+
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent,
     PrototypeComponent,
+
   ],
   imports: [
     BrowserModule,

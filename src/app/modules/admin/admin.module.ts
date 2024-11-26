@@ -22,8 +22,13 @@ import { OrderConfigComponent } from './components/order-config/order-config.com
 import { EmployeeTableComponent } from './components/employee-table/employee-table.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SquaresComponent } from './pages/squares/squares.component';
+import { SquareTableComponent } from './components/square-table/square-table.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
-
+import { AboutUsUpperComponent } from './components/about-us-upper/about-us-upper.component';
+import { AboutUsBottomComponent } from './components/about-us-bottom/about-us-bottom.component';
+import { AboutUsMiddleComponent } from './components/about-us-middle/about-us-middle.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,10 +43,6 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     CategoryTableComponent,
     CategoriesComponent,
     EmployeeRegisterComponent,
-    ProductsComponent,
-    CategoryTableComponent,
-    CategoriesComponent,
-    HomeComponent,
     AdminNavbarComponent,
     ProductComponent,
     RestaurantConfigComponent,
@@ -49,7 +50,12 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     EmployeeTableComponent,
     EmployeesComponent,
     DashboardComponent,
-    LoginAdminComponent
+    SquaresComponent,
+    SquareTableComponent,
+    LoginAdminComponent,
+    AboutUsUpperComponent,
+    AboutUsMiddleComponent, 
+    AboutUsBottomComponent
   ],
   imports: [
     CommonModule,
@@ -58,6 +64,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
     NgbAccordionModule,
     SharedModule,
     NgbModule,
+    FormsModule
   ],
 
   exports:[]
