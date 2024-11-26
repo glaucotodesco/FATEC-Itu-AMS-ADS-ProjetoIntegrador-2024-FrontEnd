@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-end bg-white py-2">
     <button type="button" class="btn btn-primary me-3" (click)="openModal(modalSquareAdd)">Novo</button>
   </div>
-  <app-square-table *ngFor="let s of exampleInfo" [square]="s" (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)" (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
+  <app-square-table *ngFor="let s of squares" [square]="s" (editSquareEmitter)="openModal(modalSquareEdit)" (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)" (removeEmitter)="openModal(modalItemDelete)" (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
 </section>
 
 <app-modal #modalItemAdd [title]="'Adicionar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">

@@ -1,38 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
+import { Square } from '../../../../interfaces/square';
+import { SquareService } from '../../../../services/square.service';
 
 @Component({
   selector: 'app-squares',
   templateUrl: './squares.component.html',
   styleUrl: './squares.component.css'
 })
-export class SquaresComponent {
+export class SquaresComponent implements OnInit {
   openModal(modalForm: ModalComponent, params : any = {}){
     modalForm.open(params);
   }
 
-  exampleInfo = [
-    {
-      square: 'Fritura',
-      items: [
-        {
-          name: 'B. Fritas'
-        },
-        {
-          name: 'Bacon'
-        }
-      ],
-    },
-    {
-      square: 'Assados',
-      items: [
-        {
-          name: 'Bife'
-        },
-        {
-          name: 'C. Frango'
-        }
-      ],
-    }
-  ]
+  squares: Square[] = [];
+
+  constructor(private squareService: SquareService) {}
+
+  loadSquares(){
+    this.squareService.getSquares().subscribe({
+      next: data => this.squares = data
+    })
+  }
+
+  ngOnInit(): void{
+    this.loadSquares();
+  }
 }

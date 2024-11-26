@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Square } from '../../../../interfaces/square';
 
 @Component({
   selector: 'app-square-table',
@@ -42,5 +43,5 @@ export class SquareTableComponent {
   }
 
   @Input()
-  square: any = {}
+  square: Square = {} as Square;
 }
