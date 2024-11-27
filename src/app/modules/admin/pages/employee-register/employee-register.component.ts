@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../services/user.service'; 
 import { User } from '../../../../interfaces/user'; // Importando o modelo UserRequest
+import { Router } from '@angular/router'; // Importação do Router
 
 @Component({
   selector: 'app-employee-register',
@@ -16,14 +17,16 @@ export class EmployeeRegisterComponent {
     profile: 'GARCOM',  // Valor padrão
   };
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {} // Injete o Router
 
   // Método para enviar os dados do formulário para o backend
   onSubmit(): void {
     this.userService.createUser(this.user).subscribe(
       (response) => {
         console.log('Usuário criado:', response);
-        // Redirecionar ou mostrar uma mensagem de sucesso
+
+        // Redirecionar para a página de "employees" após sucesso
+        this.router.navigate(['/admin/employees']);
       },
       (error) => {
         console.error('Erro ao criar usuário:', error);
