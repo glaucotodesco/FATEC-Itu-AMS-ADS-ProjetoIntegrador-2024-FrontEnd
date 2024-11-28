@@ -55,9 +55,9 @@ export class SquaresComponent implements OnInit {
             next: () => this.loadSquares()
           });
         }
-        this.square = {} as Square; //Clear the aux square
-        this.formGroupSquare.reset(); //Clear the form
       }
+      this.square = {} as Square; //Clear the aux square
+      this.formGroupSquare.reset(); //Clear the form
       this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
     });
   }
