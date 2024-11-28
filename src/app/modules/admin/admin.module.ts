@@ -30,7 +30,6 @@ import { AboutUsBottomComponent } from './components/about-us-bottom/about-us-bo
 import { AboutUsMiddleComponent } from './components/about-us-middle/about-us-middle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     HomeComponent,

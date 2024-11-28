@@ -1,5 +1,5 @@
 <div class="container mb-5 mt-3">
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-12 mb-3">
         <div class="form-floating">
@@ -7,7 +7,10 @@
             type="text"
             class="form-control"
             id="nameInput"
+            [(ngModel)]="user.name"
+            name="name"
             placeholder="."
+            required
           />
           <label for="nameInput" class="form-label">Nome</label>
         </div>
@@ -18,7 +21,10 @@
             type="text"
             class="form-control"
             id="cpfInput"
+            [(ngModel)]="user.login"
+            name="login"
             placeholder="."
+            required
           />
           <label for="cpfInput" class="form-label">CPF:</label>
         </div>
@@ -29,7 +35,10 @@
             type="text"
             class="form-control"
             id="rgInput"
+            [(ngModel)]="user.password"
+            name="password"
             placeholder="."
+            required
           />
           <label for="rgInput" class="form-label">RG:</label>
         </div>
@@ -61,27 +70,18 @@
           <select
             class="form-select"
             id="floatingSelect"
+            [(ngModel)]="user.profile"
+            name="profile"
             aria-label="Floating label select example"
           >
-            <option value="1">Garçom</option>
-            <option value="2">Caixa</option>
-            <option value="3">Gerente</option>
+            <option value="GARCOM">Garçom</option>
+            <option value="CAIXA">Caixa</option>
+            <option value="ADMIN">Gerente</option>
           </select>
           <label for="floatingSelect">Função:</label>
         </div>
       </div>
     </div>
-    <p>Acesso:</p>
-    <p>Usuário: CPF</p>
-    <p>Senha Padrão/ Automatica</p>
-    <button class="btn btn-primary me-4" routerLink="/admin/employees">
-      Salvar
-    </button>
-    <button class="btn btn-danger me-4" routerLink="/admin/employees">
-      Excluir
-    </button>
-    <button class="btn btn-secondary me-4" routerLink="/admin/employees">
-      Voltar
-    </button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
   </form>
 </div>
