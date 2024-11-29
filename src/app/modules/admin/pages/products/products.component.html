@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-primary me-3" (click)="openModal(modalForm, {fullscreen: true})">Novo</button>
     <button type="button" class="btn btn-primary me-3">Importar</button>
   </div>
-  
+
   <div class="row">
     <div class="col-2">
       <div class="position-fixed">
@@ -33,10 +33,10 @@
   </div>
 </section>
 
-<app-modal #modalForm [title]="'Criar produto'">
+<app-modal #modalForm [title]="'Criar produto'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
   <app-product></app-product>
 </app-modal>
 
-<app-modal #modalDelete [title]="'Deletar Produto'">
+<app-modal #modalDelete [title]="'Deletar Produto'" [okTextButton]="'Confirmar'" [cancelTextButton]="'Cancelar'">
   <p>Tem certeza que deseja deletar esse produto</p>
 </app-modal>
