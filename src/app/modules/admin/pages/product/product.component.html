@@ -16,10 +16,6 @@
         <div class="input-group mb-3">
           <input type="file" class="form-control" id="imageInput">
         </div>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="activeSwitch" [checked]="true">
-          <label class="form-check-label" for="activeSwitch">Disponivel</label>
-        </div>
       </div>
       <div class="col-6">
         <div class="form-floating mb-3">
@@ -43,46 +39,18 @@
           </select>
           <label for="categorieInput">Categoria</label>
         </div>
-        <table class="table table-borderless table-striped mt-3">
-          <thead class="table-secondary">
-            <tr>
-              <th scope="col">Praça</th>
-              <th scope="col">Itens</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge rounded-pill text-bg-primary ms-2">Fritura</span></td>
-              <td><input type="text" class="form-control"></td>
-              <td>
-                <button type="button" class="btn btn-danger">
-                  <i class="bi bi-trash-fill"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="badge rounded-pill text-bg-success ms-2">Assados</span></td>
-              <td><input type="text" class="form-control"></td>
-              <td>
-                <button type="button" class="btn btn-danger">
-                  <i class="bi bi-trash-fill"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3"><button (click)="openModal(modalSquare)" type="button" class="btn btn-primary">+</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="activeSwitch" [checked]="true">
+          <label class="form-check-label" for="activeSwitch">Disponivel</label>
+        </div>
       </div>
     </div>
-    <p>Itens opicionais:</p>
+    <p>Itens:</p>
     <table class="table table-borderless table-striped">
       <thead class="table-secondary">
         <tr>
           <th scope="col">Descrição</th>
-          <th scope="col">Disponivel</th>
+          <th scope="col">Opcional</th>
           <th scope="col">Praça</th>
           <th scope="col"></th>
         </tr>
@@ -92,14 +60,33 @@
           <td>Feijão</td>
           <td>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" [checked]="true">
+              <input class="form-check-input" type="checkbox" role="switch" [checked]="false">
             </div>
           </td>
           <td>
             <span class="badge rounded-pill text-bg-success">Assados</span>
           </td>
           <td>
-            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalAddon)">
+            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalItems)">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>B. Fritas</td>
+          <td>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" [checked]="true">
+            </div>
+          </td>
+          <td>
+            <span class="badge rounded-pill text-bg-primary">Fritura</span>
+          </td>
+          <td>
+            <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalItems)">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-danger">
@@ -152,19 +139,6 @@
   </form>
 </section>
 
-<app-modal #modalSquare [title]="'Selecione uma Praça'">
-  <div class="list-group">
-    <a class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" checked>
-      <span class="badge rounded-pill text-bg-primary ms-2">Fritura</span>
-    </a>
-    <a class="list-group-item">
-      <input class="form-check-input" type="checkbox" value="" checked>
-      <span class="badge rounded-pill text-bg-success ms-2">Assados</span>
-    </a>
-  </div>
-</app-modal>
-
 <app-modal #modalAddon [title]="'Criar adicional'">
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="addonDescription" placeholder=".">
@@ -193,9 +167,9 @@
 
 <app-modal #modalItems [title]="'Item opcional'">
   <div class="form-floating mb-3">
-    <select class="form-select" id="squareItemSelect" aria-label=".">
-      <option [value]="1">Fritura</option>
-      <option [value]="2">Assados</option>
+    <select #square class="form-select" id="squareItemSelect" aria-label="." (change)="changeItem()">
+      <option value="0">Fritura</option>
+      <option value="1">Assados</option>
     </select>
     <label for="squareItemSelect">Praça</label>
   </div>

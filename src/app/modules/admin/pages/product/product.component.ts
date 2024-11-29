@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 
 @Component({
@@ -10,6 +10,9 @@ export class ProductComponent {
   openModal(modal: ModalComponent) {
     modal.open();
   }
+
+  @ViewChild('square')
+  squareSelect!: ElementRef;
 
   exampleItems = [
     [
@@ -27,8 +30,15 @@ export class ProductComponent {
       {
         name: 'C. Frango',
       },
+      {
+        name: 'Feijão'
+      }
     ],
   ];
 
   selectItems = this.exampleItems[0];
+
+  changeItem() {
+    this.selectItems = this.exampleItems[this.squareSelect.nativeElement.value];
+  }
 }
