@@ -4,13 +4,12 @@
     <button type="button" class="btn btn-primary me-3" (click)="saveSquare(modalSquareAdd)">Novo</button>
   </div>
   <app-square-table *ngFor="let s of squares" [square]="s" 
-  
+
     (editSquareEmitter)="updateSquare(s, modalSquareEdit)"
     (addEmitter)="saveItem(s, modalItemAdd)" 
     (editEmitter)="updateItem($event, s, modalItemEdit)"
     (removeEmitter)="openModal(modalItemDelete)"
     (removeSquareEmitter)="openModal(modalSquareDelete)"
-    
     >
   
   </app-square-table>
@@ -29,7 +28,7 @@
   <form [formGroup]="formGroupItem">
     <div class="mb-3">
       <label for="nameInput" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="nameInput" formControlName="name">
+      <input type="text" class="form-control" id="nameInput" formControlName="name" [value]="item.name">
     </div>
   </form>
 </app-modal>

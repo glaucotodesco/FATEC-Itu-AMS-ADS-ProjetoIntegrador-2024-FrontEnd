@@ -13,10 +13,6 @@ import { Item } from '../../../../interfaces/item';
 })
 export class SquaresComponent implements OnInit {
   openModal(modalForm: ModalComponent, params: any = {}) {
-
-
-
-
     return modalForm.open(params);
   }
 
@@ -85,13 +81,6 @@ export class SquaresComponent implements OnInit {
     modal.open().then((confirm) => { //Opening the modal
       if (confirm) { //If the user clicks "Ok" on modal
         Object.assign(this.square, square); //Set the new value to aux square
- 
-
-
-
-     
-
-
 
         if (!this.isEditing) {
           Object.assign(this.item, this.formGroupItem.value, { square: { id: square.id, name: square.name } }); //Set the new value to aux square
@@ -118,7 +107,6 @@ export class SquaresComponent implements OnInit {
       this.square = {} as Square; //Clear the aux square
       this.formGroupSquare.reset(); //Clear the form
       this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
-
     });
 
   }
@@ -133,13 +121,7 @@ export class SquaresComponent implements OnInit {
   updateItem(item: Item, square: Square, modal: ModalComponent) {
     this.square = square;
     this.isEditing = true;
-
-
+    Object.assign(this.item, item);
     this.saveItem(square, modal, item);
-    
-    
-    
-
-    
   }
 }
