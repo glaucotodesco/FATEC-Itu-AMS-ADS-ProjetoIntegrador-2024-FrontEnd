@@ -3,24 +3,34 @@
   <div class="d-flex justify-content-end bg-white py-2">
     <button type="button" class="btn btn-primary me-3" (click)="saveSquare(modalSquareAdd)">Novo</button>
   </div>
-  <app-square-table *ngFor="let s of squares" [square]="s" (editSquareEmitter)="updateSquare(s, modalSquareEdit)"
-    (addEmitter)="openModal(modalItemAdd)" (editEmitter)="openModal(modalItemEdit)"
+  <app-square-table *ngFor="let s of squares" [square]="s" 
+
+    (editSquareEmitter)="updateSquare(s, modalSquareEdit)"
+    (addEmitter)="saveItem(s, modalItemAdd)" 
+    (editEmitter)="updateItem($event, s, modalItemEdit)"
     (removeEmitter)="openModal(modalItemDelete)"
-    (removeSquareEmitter)="openModal(modalSquareDelete)"></app-square-table>
+    (removeSquareEmitter)="openModal(modalSquareDelete)"
+    >
+  
+  </app-square-table>
 </section>
 
-<app-modal #modalItemAdd [title]="'Adicionar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
-  <div class="mb-3">
-    <label for="nameInput" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nameInput">
-  </div>
+<app-modal #modalItemAdd [title]="'Adicionar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'" [okResult]="true">
+  <form [formGroup]="formGroupItem">
+    <div class="mb-3">
+      <label for="nameInput" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nameInput" formControlName="name">
+    </div>
+  </form>
 </app-modal>
 
-<app-modal #modalItemEdit [title]="'Editar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'">
-  <div class="mb-3">
-    <label for="nameInput" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nameInput">
-  </div>
+<app-modal #modalItemEdit [title]="'Editar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'" [okResult]="true">
+  <form [formGroup]="formGroupItem">
+    <div class="mb-3">
+      <label for="nameInput" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nameInput" formControlName="name" [value]="item.name">
+    </div>
+  </form>
 </app-modal>
 
 <app-modal #modalSquareAdd [title]="'Adicionar Praça'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'" [okResult]="true">
