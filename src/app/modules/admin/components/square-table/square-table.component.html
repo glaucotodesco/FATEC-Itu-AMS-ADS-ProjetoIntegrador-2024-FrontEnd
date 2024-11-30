@@ -18,7 +18,7 @@
     <tr *ngFor="let i of square.items">
       <td>{{i.name}}</td>
       <td>
-        <button type="button" class="btn btn-secondary me-2" (click)="edit()">
+        <button type="button" class="btn btn-secondary me-2" (click)="edit(i)">
           <i class="bi bi-pencil-square"></i>
         </button>
         <button type="button" class="btn btn-danger" (click)="remove()">

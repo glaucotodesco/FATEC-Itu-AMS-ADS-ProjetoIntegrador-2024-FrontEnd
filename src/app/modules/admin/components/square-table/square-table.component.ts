@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Square } from '../../../../interfaces/square';
+import { Item } from '../../../../interfaces/item';
 
 @Component({
   selector: 'app-square-table',
@@ -17,7 +18,7 @@ export class SquareTableComponent {
   addEmitter = new EventEmitter();
 
   @Output()
-  editEmitter = new EventEmitter();
+  editEmitter = new EventEmitter<Item>();
 
   @Output()
   removeEmitter = new EventEmitter();
@@ -34,12 +35,13 @@ export class SquareTableComponent {
     this.addEmitter.emit();
   }
 
-  edit(){
-    this.editEmitter.emit();
+  edit(item: Item){
+    this.editEmitter.emit(item);
   }
 
   remove(){
     this.removeEmitter.emit();
+    
   }
 
   @Input()

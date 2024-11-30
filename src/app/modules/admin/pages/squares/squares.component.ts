@@ -3,6 +3,8 @@ import { ModalComponent } from '../../../../shared/components/modal/modal.compon
 import { Square } from '../../../../interfaces/square';
 import { SquareService } from '../../../../services/square.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ItemsService } from '../../../../services/items.service';
+import { Item } from '../../../../interfaces/item';
 
 @Component({
   selector: 'app-squares',
@@ -11,18 +13,26 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SquaresComponent implements OnInit {
   openModal(modalForm: ModalComponent, params: any = {}) {
+
+
+
+
     return modalForm.open(params);
   }
 
   isEditing: boolean = false;
 
   formGroupSquare: FormGroup;
+  formGroupItem: FormGroup;
 
   squares: Square[] = [];
   square: Square = {} as Square;
+  items: Item[] = [];
+  item: Item = {} as Item;
 
   constructor(
     private squareService: SquareService,
+    private itemsService: ItemsService,
     private formBuilder: FormBuilder
   ) {
     this.formGroupSquare = this.formBuilder.group({
@@ -30,6 +40,14 @@ export class SquaresComponent implements OnInit {
       name: [''],
       items: [[]],
     });
+
+    this.formGroupItem = this.formBuilder.group({
+      id: [null],
+      name: [''],
+      square: [{}],
+    });
+
+
   }
 
   loadSquares() {
@@ -59,7 +77,50 @@ export class SquaresComponent implements OnInit {
       this.square = {} as Square; //Clear the aux square
       this.formGroupSquare.reset(); //Clear the form
       this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
+
     });
+  }
+
+  saveItem(square: Square, modal: ModalComponent, item?: Item) {
+    modal.open().then((confirm) => { //Opening the modal
+      if (confirm) { //If the user clicks "Ok" on modal
+        Object.assign(this.square, square); //Set the new value to aux square
+ 
+
+
+
+     
+
+
+
+        if (!this.isEditing) {
+          Object.assign(this.item, this.formGroupItem.value, { square: { id: square.id, name: square.name } }); //Set the new value to aux square
+
+          
+          this.itemsService.postItem(this.item).subscribe({
+            next: () => this.loadSquares() //Bring the new List of squares
+          })
+        } else {
+          Object.assign(this.item, item, {name: this.formGroupItem.value.name},  { square: { id: square.id, name: square.name } } )
+    
+          this.itemsService.putItem(this.item).subscribe({
+            next: () => this.loadSquares()
+          });
+
+        }
+
+        this.item = {} as Item;
+        this.formGroupItem.reset();
+        this.isEditing = false;
+
+
+      }
+      this.square = {} as Square; //Clear the aux square
+      this.formGroupSquare.reset(); //Clear the form
+      this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
+
+    });
+
   }
 
   updateSquare(square: Square, modal: ModalComponent) {
@@ -67,5 +128,18 @@ export class SquaresComponent implements OnInit {
     this.isEditing = true;
     this.formGroupSquare.setValue(square); //Set the form value
     this.saveSquare(modal); //Go to save method
+  }
+
+  updateItem(item: Item, square: Square, modal: ModalComponent) {
+    this.square = square;
+    this.isEditing = true;
+
+
+    this.saveItem(square, modal, item);
+    
+    
+    
+
+    
   }
 }
