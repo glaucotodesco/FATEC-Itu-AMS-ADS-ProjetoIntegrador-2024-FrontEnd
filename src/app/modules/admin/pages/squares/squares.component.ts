@@ -70,24 +70,21 @@ export class SquaresComponent implements OnInit {
           });
         }
       }
-      this.square = {} as Square; //Clear the aux square
-      this.formGroupSquare.reset(); //Clear the form
-      this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
-
+      this.clearFunction();
     });
   }
 
   saveItem(square: Square, modal: ModalComponent, item?: Item) {
-    modal.open().then((confirm) => { //Opening the modal
-      if (confirm) { //If the user clicks "Ok" on modal
-        Object.assign(this.square, square); //Set the new value to aux square
+    modal.open().then((confirm) => { 
+      if (confirm) { 
+        Object.assign(this.square, square); 
 
         if (!this.isEditing) {
-          Object.assign(this.item, this.formGroupItem.value, { square: { id: square.id, name: square.name } }); //Set the new value to aux square
+          Object.assign(this.item, this.formGroupItem.value, { square: { id: square.id, name: square.name } });
 
           
           this.itemsService.postItem(this.item).subscribe({
-            next: () => this.loadSquares() //Bring the new List of squares
+            next: () => this.loadSquares() 
           })
         } else {
           Object.assign(this.item, item, {name: this.formGroupItem.value.name},  { square: { id: square.id, name: square.name } } )
@@ -104,11 +101,16 @@ export class SquaresComponent implements OnInit {
 
 
       }
-      this.square = {} as Square; //Clear the aux square
-      this.formGroupSquare.reset(); //Clear the form
-      this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
+      this.clearFunction();
     });
 
+  }
+
+  clearFunction() {
+    //Clear the form
+    this.square = {} as Square; //Clear the aux square
+    this.formGroupSquare.reset(); //Clear the form
+    this.isEditing = false; //Reset the editing coditional, even if the user clicks "cancel" in the modal
   }
 
   updateSquare(square: Square, modal: ModalComponent) {
