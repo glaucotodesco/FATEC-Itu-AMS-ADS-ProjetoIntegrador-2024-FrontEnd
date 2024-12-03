@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="row mb-4">
+    <div class="col text-center">
+      <h4>Caixa: 1</h4>
+      <h5>Nome: (Exemplo)</h5>
+    </div>
+  </div>
   <div class="row justify-content-center mb-3">
     <div class="col-md-5 border p-3 rounded shadow">
       <h5 class="text-center mb-2">Comandas em Aberto</h5>
@@ -22,7 +28,6 @@
               <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
                 <i class="bi bi-highlighter"></i>
               </button>
-              <button class="btn btn-primary btn-sm" routerLink="/checkout/checkout">Checkout</button>
             </td>
           </tr>
           <tr>
@@ -34,7 +39,6 @@
               <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
                 <i class="bi bi-highlighter"></i>
               </button>
-              <button class="btn btn-primary btn-sm" routerLink="/checkout/checkout">Checkout</button>
             </td>
           </tr>
           <tr>
@@ -46,7 +50,6 @@
               <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
                 <i class="bi bi-highlighter"></i>
               </button>
-              <button class="btn btn-primary btn-sm" routerLink="/checkout/checkout">Checkout</button>
             </td>
           </tr>
           <tr>
@@ -58,7 +61,6 @@
               <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
                 <i class="bi bi-highlighter"></i>
               </button>
-              <button class="btn btn-primary btn-sm" routerLink="/checkout/checkout">Checkout</button>
             </td>
           </tr>
         </tbody>
@@ -81,6 +83,7 @@
             <th>Total</th>
             <th>Horário</th>
             <th>Tipo</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -89,24 +92,44 @@
             <td>R$ 40,00</td>
             <td>18:30</td>
             <td>Balcão</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
+                <i class="bi bi-highlighter"></i>
+              </button>
+            </td>
           </tr>
           <tr>
             <td>130</td>
             <td>R$ 35,00</td>
             <td>18:45</td>
             <td>Mesa</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
+                <i class="bi bi-highlighter"></i>
+              </button>
+            </td>
           </tr>
           <tr>
             <td>131</td>
             <td>R$ 50,00</td>
             <td>19:00</td>
             <td>Balcão</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
+                <i class="bi bi-highlighter"></i>
+              </button>
+            </td>
           </tr>
           <tr>
             <td>132</td>
             <td>R$ 45,00</td>
             <td>19:15</td>
             <td>Mesa</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" (click)="openModal(modalOrder)">
+                <i class="bi bi-highlighter"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -130,17 +153,6 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center mt-3">
-  <button class="btn btn-primary btn-sm" (click)="openModal(modalSelect)">
-    Consultar Comanda
-  </button>
-</div>
-
-<!--<div class="d-flex justify-content-center mt-3">
-  <button class="btn btn-primary btn-sm" routerLink="/checkout/close-register">
-    Acessar Tela de Fechamento do Caixa
-  </button>
-</div>-->
 
 <div class="d-flex justify-content-center mt-3">
   <button class="btn btn-primary btn-sm" (click)="openModal(modalCash)">
@@ -149,18 +161,14 @@
 </div>
 
 <!-- Modais -->
-<app-modal #modalOrder [title]="'Editar Registro'">
+<app-modal #modalOrder [title]="'Editar Registro'"[okTextButton]="'Editar Pedido'" [cancelTextButton]="'Voltar'" [okResult]="true">
   <app-order-register></app-order-register>
 </app-modal>
 
-<app-modal #modalRegister [title]="'Registrar Pedido'">
+<app-modal #modalRegister [title]="'Registrar Pedido'"[okTextButton]="'Adicionar Pedido'" [cancelTextButton]="'Voltar'" [okResult]="true">
   <app-create-order></app-create-order>
 </app-modal>
 
-<app-modal #modalCash [title]="'Adicionar Dinheiro'">
+<app-modal #modalCash [title]="'Adicionar Dinheiro'"[okTextButton]="'Adicionar'" [cancelTextButton]="'Voltar'" [okResult]="true">
   <app-add-cash></app-add-cash>
-</app-modal>
-
-<app-modal #modalSelect [title]="'Consultar Comanda'">
-  <app-select-order></app-select-order>
 </app-modal>

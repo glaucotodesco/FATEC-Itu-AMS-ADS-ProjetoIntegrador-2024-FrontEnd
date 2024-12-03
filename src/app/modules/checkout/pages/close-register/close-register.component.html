@@ -2,17 +2,13 @@
   <div class="card p-4" style="width: 400px; max-width: 100%;">
     <form>
       <div class="mb-3">
-        <label for="caixaSelect" class="form-label">Selecione o Caixa</label>
-        <select class="form-select" id="caixaSelect" required>
-          <option value="" disabled selected>Escolha um caixa</option>
-          <option value="1">Caixa 1</option>
-          <option value="2">Caixa 2</option>
-          <option value="3">Caixa 3</option>
-        </select>
+        <label for="Caixa" class="form-label">Caixa</label>
+        <input type="number" class="form-control" id="Caixa" value="1" readonly>
       </div>
       <div class="mb-3">
         <label for="DatadeAbertura" class="form-label">Data de Abertura</label>
-        <input type="date" class="form-control" id="DatadeAbertura" required>
+        <!-- Data de exemplo definida -->
+        <input type="date" class="form-control" id="DatadeAbertura" value="2024-12-03" required>
       </div>
       <div class="mb-3">
         <label for="Pagonodinheiro" class="form-label">Pago no Dinheiro</label>
@@ -42,8 +38,7 @@
         <label for="saldoFinal" class="form-label">Saldo Final</label>
         <input type="text" class="form-control" id="saldoFinal" value="750">
       </div>
-      <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-primary btn-sm">Calcular</button>
+      <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-primary btn-sm" (click)="openModal(modalSelect)">
           Fechar Caixa
         </button>
@@ -53,7 +48,6 @@
 </div>
 
 <!-- Modal de Confirmação -->
-<app-modal #modalSelect [title]="'Confirmar Fechamento'">
+<app-modal #modalSelect [title]="'Confirmar Fechamento'"[okTextButton]="'Sim'" [cancelTextButton]="'Não'" [okResult]="true">
   <app-check-close-register></app-check-close-register>
 </app-modal>
-

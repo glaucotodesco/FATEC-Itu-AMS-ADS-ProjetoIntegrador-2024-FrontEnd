@@ -5,8 +5,10 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 1</h2>
-          <!-- Botão Remover com modal de confirmação -->
-          <button type="button" class="btn btn-danger btn-sm" (click)="openModal(modalRemove)">X</button>
+          <!-- Botão Remover com ícone de lixeira -->
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(modalRemove)">
+            <i class="bi bi-trash"></i>
+          </button>
         </div>
         <div class="form-group">
           <label for="comanda1">Número da Comanda:</label>
@@ -27,32 +29,33 @@
           <tbody>
             <tr>
               <td>Parmegiana</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
+              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
               <td>R$5</td>
               <td>R$1</td>
               <td>R$6</td>
               <td>
                 <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-trash"></i>
+                </button>
               </td>
             </tr>
             <tr>
               <td>Coca-cola</td>
-              <td><input type="number" class="form-control form-control-sm" value="2"></td>
+              <td><input type="number" class="form-control form-control-sm" value="2" readonly></td>
               <td>R$1</td>
               <td>R$2</td>
               <td>R$3</td>
               <td>
                 <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="4" class="text-end">Subtotal</td>
-              <td>R$8</td>
-              <td></td>
             </tr>
           </tfoot>
         </table>
@@ -62,8 +65,10 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 2</h2>
-          <!-- Botão Remover com modal de confirmação -->
-          <button type="button" class="btn btn-danger btn-sm" (click)="openModal(modalRemove)">X</button>
+          <!-- Botão Remover com ícone de lixeira -->
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(modalRemove)">
+            <i class="bi bi-trash"></i>
+          </button>
         </div>
         <div class="form-group">
           <label for="comanda2">Número da Comanda:</label>
@@ -84,32 +89,33 @@
           <tbody>
             <tr>
               <td>Espaguete</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
+              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
               <td>R$7</td>
               <td>R$1.5</td>
               <td>R$8.5</td>
               <td>
                 <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-trash"></i>
+                </button>
               </td>
             </tr>
             <tr>
               <td>Guaraná</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
+              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
               <td>R$2</td>
               <td>R$0.5</td>
               <td>R$2.5</td>
               <td>
                 <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="4" class="text-end">Subtotal</td>
-              <td>R$11</td>
-              <td></td>
             </tr>
           </tfoot>
         </table>
@@ -145,18 +151,8 @@
       </div>
 
       <div class="form-group mb-3">
-        <label for="subtotal">Valor Subtotal:</label>
-        <input type="text" class="form-control form-control-sm" id="subtotal" name="subtotal" readonly>
-      </div>
-
-      <div class="form-group mb-3">
         <label for="fixed-tip">Gorjeta (15%):</label>
         <p id="fixed-tip" style="font-size: 0.9rem;">Valor da gorjeta: R$2.85</p>
-      </div>
-
-      <div class="form-group mb-3">
-        <label for="remaining-amount">Valor restante a ser pago:</label>
-        <input type="text" class="form-control form-control-sm" id="remaining-amount" name="remaining-amount" readonly>
       </div>
 
       <div class="form-group mb-3">
@@ -169,6 +165,6 @@
   </div>
 </div>
 
-<app-modal #modalRemove [title]="'Remover Comanda'">
+<app-modal #modalRemove [title]="'Remover Comanda'" [okTextButton]="'Sim'" [cancelTextButton]="'Não'" [okResult]="true">
   <app-remove-tabs></app-remove-tabs>
 </app-modal>
