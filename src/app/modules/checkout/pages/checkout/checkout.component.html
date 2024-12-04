@@ -5,7 +5,6 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 1</h2>
-          <!-- Botão Remover com ícone de lixeira -->
           <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(modalRemove)">
             <i class="bi bi-trash"></i>
           </button>
@@ -27,28 +26,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Parmegiana</td>
-              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
-              <td>R$5</td>
-              <td>R$1</td>
-              <td>R$6</td>
+            <tr *ngFor="let item of orderItems1; let i = index">
+              <td>{{ item.name }}</td>
+              <td><input type="number" class="form-control form-control-sm" [(ngModel)]="item.quantity" (ngModelChange)="updateTotal()" readonly></td>
+              <td>R$ {{ item.unitPrice.toFixed(2) }}</td>
+              <td>R$ {{ item.additional.toFixed(2) }}</td>
+              <td>R$ {{ (item.unitPrice + item.additional) * item.quantity | number: '1.2-2' }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-outline-danger btn-sm">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Coca-cola</td>
-              <td><input type="number" class="form-control form-control-sm" value="2" readonly></td>
-              <td>R$1</td>
-              <td>R$2</td>
-              <td>R$3</td>
-              <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-outline-danger btn-sm">
+                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems1, i)">
                   <i class="bi bi-trash"></i>
                 </button>
               </td>
@@ -56,6 +42,9 @@
           </tbody>
           <tfoot>
             <tr>
+              <td colspan="4" class="text-end"><strong>Total:</strong></td>
+              <td>R$ {{ calculateTotal(orderItems1) | number: '1.2-2' }}</td>
+              <td></td>
             </tr>
           </tfoot>
         </table>
@@ -65,7 +54,6 @@
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 2</h2>
-          <!-- Botão Remover com ícone de lixeira -->
           <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModal(modalRemove)">
             <i class="bi bi-trash"></i>
           </button>
@@ -87,28 +75,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Espaguete</td>
-              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
-              <td>R$7</td>
-              <td>R$1.5</td>
-              <td>R$8.5</td>
+            <tr *ngFor="let item of orderItems2; let i = index">
+              <td>{{ item.name }}</td>
+              <td><input type="number" class="form-control form-control-sm" [(ngModel)]="item.quantity" (ngModelChange)="updateTotal()" readonly></td>
+              <td>R$ {{ item.unitPrice.toFixed(2) }}</td>
+              <td>R$ {{ item.additional.toFixed(2) }}</td>
+              <td>R$ {{ (item.unitPrice + item.additional) * item.quantity | number: '1.2-2' }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-outline-danger btn-sm">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Guaraná</td>
-              <td><input type="number" class="form-control form-control-sm" value="1" readonly></td>
-              <td>R$2</td>
-              <td>R$0.5</td>
-              <td>R$2.5</td>
-              <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-outline-danger btn-sm">
+                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems2, i)">
                   <i class="bi bi-trash"></i>
                 </button>
               </td>
@@ -116,6 +91,9 @@
           </tbody>
           <tfoot>
             <tr>
+              <td colspan="4" class="text-end"><strong>Total:</strong></td>
+              <td>R$ {{ calculateTotal(orderItems2) | number: '1.2-2' }}</td>
+              <td></td>
             </tr>
           </tfoot>
         </table>
@@ -127,22 +105,22 @@
       <div class="form-group mb-3">
         <label for="add-comanda">Adicionar Comanda:</label>
         <div class="input-group">
-          <input type="number" class="form-control form-control-sm" id="add-comanda" name="add-comanda" placeholder="Número da nova comanda">
-          <button class="btn btn-success btn-sm" type="button">Adicionar</button>
+          <input type="number" class="form-control form-control-sm" id="add-comanda" name="add-comanda" placeholder="Número da comanda" [(ngModel)]="newComandaNumber">
+          <button class="btn btn-success btn-sm" type="button" (click)="addComanda(newComandaNumber)">Adicionar</button>
         </div>
       </div>
 
       <div class="form-group mb-3">
         <label for="scan-code">Escanear pelo Código de Barras:</label>
         <div class="input-group">
-          <input type="text" class="form-control form-control-sm" id="scan-code" name="scan-code" placeholder="Ex: 0000" readonly autofocus>
-          <button class="btn btn-success btn-sm" type="button">Escanear</button>
+          <input type="text" class="form-control form-control-sm" id="scan-code" name="scan-code" placeholder="Ex: 0000" [(ngModel)]="scannedCode" autofocus>
+          <button class="btn btn-success btn-sm" type="button" (click)="scanProduct(scannedCode)">Escanear</button>
         </div>
       </div>
 
       <div class="form-group mb-3">
         <label for="payment">Forma de Pagamento:</label>
-        <select class="form-select form-select-sm" id="payment" name="payment">
+        <select class="form-select form-select-sm" id="payment" name="payment" [(ngModel)]="selectedPaymentMethod">
           <option value="credit">Crédito</option>
           <option value="debit">Débito</option>
           <option value="pix">PIX</option>
@@ -152,15 +130,15 @@
 
       <div class="form-group mb-3">
         <label for="fixed-tip">Gorjeta (15%):</label>
-        <p id="fixed-tip" style="font-size: 0.9rem;">Valor da gorjeta: R$2.85</p>
+        <p id="fixed-tip" style="font-size: 0.9rem;">Valor da gorjeta: R$ {{ calculateTip(totalAmount) | number: '1.2-2' }}</p>
       </div>
 
       <div class="form-group mb-3">
         <label for="total-amount">Valor Total:</label>
-        <input type="text" class="form-control form-control-sm" id="total-amount" name="total-amount" readonly>
+        <input type="text" class="form-control form-control-sm" id="total-amount" name="total-amount" [value]="calculateTotalAmount()" readonly>
       </div>
 
-      <button type="button" class="btn btn-primary btn-sm">Finalizar</button>
+      <button type="button" class="btn btn-primary btn-sm" (click)="finalizePayment()">Finalizar</button>
     </div>
   </div>
 </div>
