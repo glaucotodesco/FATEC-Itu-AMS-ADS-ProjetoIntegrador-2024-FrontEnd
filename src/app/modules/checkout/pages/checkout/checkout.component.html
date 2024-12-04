@@ -33,10 +33,12 @@
               <td>R$ {{ item.additional.toFixed(2) }}</td>
               <td>R$ {{ (item.unitPrice + item.additional) * item.quantity | number: '1.2-2' }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
-                <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems1, i)">
-                  <i class="bi bi-trash"></i>
-                </button>
+                <div class="input-group">
+                  <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
+                  <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems1, i)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -82,10 +84,12 @@
               <td>R$ {{ item.additional.toFixed(2) }}</td>
               <td>R$ {{ (item.unitPrice + item.additional) * item.quantity | number: '1.2-2' }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
-                <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems2, i)">
-                  <i class="bi bi-trash"></i>
-                </button>
+                <div class="input-group">
+                  <input type="text" class="form-control form-control -sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
+                  <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeItem(orderItems2, i)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>
