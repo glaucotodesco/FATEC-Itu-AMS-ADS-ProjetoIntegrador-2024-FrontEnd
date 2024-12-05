@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { SelectOrderComponent } from './components/select-order/select-order.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckCloseRegisterComponent } from './components/check-close-register/check-close-register.component';
@@ -25,7 +24,6 @@ import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     OpenRegisterComponent,
-    OrderListComponent,
     HomeComponent,
     OrdersSlipComponent,
     OrderRegisterComponent,
