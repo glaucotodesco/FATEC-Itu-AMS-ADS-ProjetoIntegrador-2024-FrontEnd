@@ -100,12 +100,29 @@
       <!-- Forma de Pagamento -->
       <div class="form-group mb-3">
         <label for="payment">Forma de Pagamento:</label>
-        <select class="form-select form-select-sm" id="payment" name="payment" [(ngModel)]="selectedPaymentMethod">
+        <select class="form-select form-select-sm" id="payment" name="payment" [(ngModel)]="selectedPaymentMethod" (change)="onPaymentMethodChange()">
           <option value="credit">Crédito</option>
           <option value="debit">Débito</option>
           <option value="pix">PIX</option>
           <option value="dinheiro">Dinheiro</option>
+          <option value="split">Dividir Pagamento</option> <!-- Nova opção para dividir -->
         </select>
+      </div>
+
+      <!-- Divisão do Pagamento -->
+      <div *ngIf="selectedPaymentMethod === 'split'" class="form-group mb-3">
+        <label for="splitPayment">Dividir Pagamento:</label>
+        <div *ngFor="let payment of splitPayments; let i = index" class="d-flex mb-2">
+          <select class="form-select form-select-sm" [(ngModel)]="payment.method" (change)="updateSplitAmount()">
+            <option value="credit">Crédito</option>
+            <option value="debit">Débito</option>
+            <option value="pix">PIX</option>
+            <option value="dinheiro">Dinheiro</option>
+          </select>
+          <input type="number" class="form-control form-control-sm ms-2" [(ngModel)]="payment.amount" (input)="updateSplitAmount()" min="0" [max]="totalAmount" placeholder="Valor">
+          <button type="button" class="btn btn-danger btn-sm ms-2" (click)="removeSplit(i)">Remover</button>
+        </div>
+        <button type="button" class="btn btn-info btn-sm" (click)="addSplitPayment()">Adicionar Pagamento</button>
       </div>
 
       <!-- Gorjeta -->

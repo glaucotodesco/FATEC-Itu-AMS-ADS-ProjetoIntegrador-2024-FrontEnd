@@ -23,9 +23,8 @@ export class CheckoutComponent {
   selectedPaymentMethod: string = 'credit';
   totalAmount: number = 0;
 
-  openModal(modal: ModalComponent) {
-    modal.open();
-  }
+  // Dados de divisão do pagamento
+  splitPayments: { method: string, amount: number }[] = [];
 
   // Atualiza o total quando a quantidade de um item muda
   updateTotal(): void {
@@ -95,6 +94,10 @@ export class CheckoutComponent {
 
   // Finaliza o pagamento (ação fictícia)
   finalizePayment(): void {
+    if (this.selectedPaymentMethod === 'split' && this.splitPayments.reduce((sum, payment) => sum + payment.amount, 0) !== this.calculateTotalAmount()) {
+      alert('O valor total não corresponde à soma dos pagamentos divididos!');
+      return;
+    }
     alert(`Pagamento finalizado com sucesso!`);
   }
 
@@ -108,5 +111,35 @@ export class CheckoutComponent {
   // Escaneia um produto (exemplo fictício)
   scanProduct(code: string): void {
     alert(`Produto escaneado: ${code}`);
+  }
+
+  // Lida com a mudança na forma de pagamento
+  onPaymentMethodChange(): void {
+    if (this.selectedPaymentMethod !== 'split') {
+      this.splitPayments = [];  // Limpa os pagamentos divididos se mudar a opção
+    }
+  }
+
+  // Atualiza o total ao dividir o pagamento
+  updateSplitAmount(): void {
+    const total = this.splitPayments.reduce((sum, payment) => sum + payment.amount, 0);
+    if (total > this.calculateTotalAmount()) {
+      alert('A soma dos pagamentos não pode ser maior que o total!');
+    }
+  }
+
+  // Adiciona um novo método de pagamento na divisão
+  addSplitPayment(): void {
+    if (this.splitPayments.length >= 3) {
+      alert('Você pode dividir o pagamento em no máximo 3 formas.');
+      return;
+    }
+    this.splitPayments.push({ method: 'credit', amount: 0 });
+  }
+
+  // Remove um pagamento da divisão
+  removeSplit(index: number): void {
+    this.splitPayments.splice(index, 1);
+    this.updateSplitAmount();
   }
 }
