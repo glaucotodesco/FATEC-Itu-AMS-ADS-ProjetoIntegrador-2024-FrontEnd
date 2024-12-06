@@ -6,4 +6,5 @@ export interface Product {
   discount: number;
   availability: boolean;
   category: string;
+  imageurl: string
 }
