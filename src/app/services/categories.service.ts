@@ -14,6 +14,7 @@ export class CategoriesService {
   getCategories(): Observable<Categories[]> {
     return this.http.get<Categories[]>(this.url);
   }
+  
   getCategoriesById(id: number): Observable<Categories> {
     return this.http.get<Categories>(`${this.url}/${id}`);
   }
@@ -23,7 +24,7 @@ export class CategoriesService {
   putCategories(categories: Categories): Observable<Categories> {
     return this.http.put<Categories>(`${this.url}/${categories.id}`, categories);
   }
-  deleteCategories(categories: Categories): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${categories.id}`);
+  deleteCategories(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`);
   }
 }

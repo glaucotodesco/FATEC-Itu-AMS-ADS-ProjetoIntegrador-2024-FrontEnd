@@ -1,6 +1,6 @@
 export interface Categories {
   id: number;
   name: string;
-  qtdProctucs: number;
+  // qtdProctucs: number;
   availability: boolean;
 }
