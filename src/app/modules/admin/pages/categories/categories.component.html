@@ -1,5 +1,6 @@
 <section class="container mt-3">
   <h1 class="display-6">Categorias</h1>
+
   <div class="d-flex justify-content-end">
     <button type="button" class="btn btn-primary" (click)="openModal(modalForm)">Criar Nova Categoria</button>
   </div>
@@ -15,6 +16,7 @@
       </tr>
     </thead>
     <tbody>
+
       <tr *ngFor="let category of categories">
         <td>{{ category.name }}</td>
         <td>{{ category.qtdProducts }}</td>

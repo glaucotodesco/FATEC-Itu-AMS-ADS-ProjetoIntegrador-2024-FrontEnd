@@ -4,9 +4,7 @@ import { OpenRegisterComponent } from './pages/open-register/open-register.compo
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { OrderListComponent } from './order-list/order-list.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
-import { OrderRegisterComponent } from './components/order-register/order-register.component';
 import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
@@ -23,16 +21,8 @@ const routes: Routes = [
         component: OpenRegisterComponent
       },
       {
-        path: 'order-list',
-        component: OrderListComponent
-      },
-      {
         path: 'close-register',
         component: CloseRegisterComponent
-      },
-      {
-        path: 'order-register',
-        component: OrderRegisterComponent
       },
       {
         path: "home",

@@ -11,9 +11,8 @@
       <div class="d-flex flex-column align-items-center justify-content-center fs-3 text-center text-white rounded"
         style="background-color: #0EA900; height: 150px; width: 150px;">
         <p class="text-decoration-underline">{{e}}</p>
-        <div class="d-flex gap-3">
-          <i class="bi bi-ban"></i>
-          <i *ngIf="e == testArray.length" class="bi bi-trash-fill"></i>
+        <div class="d-flex gap-3" [ngClass]="{'mb-5': e != testArray.length}">
+          <i *ngIf="e == testArray.length" class="bi bi-trash-fill mt-1"></i>
         </div>
       </div>
     </div>

@@ -1,12 +1,11 @@
 <div class="container mt-4">
   <div class="row">
+    <!-- Coluna da Comanda -->
     <div class="col-md-6">
-      <!-- Comanda 1 -->
+      <!-- Comanda -->
       <div class="mb-3">
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 1</h2>
-          <!-- Botão Remover com modal de confirmação -->
-          <button type="button" class="btn btn-danger btn-sm" (click)="openModal(modalRemove)">X</button>
         </div>
         <div class="form-group">
           <label for="comanda1">Número da Comanda:</label>
@@ -21,94 +20,56 @@
               <th>V. Uni</th>
               <th>Adic.</th>
               <th>Valor</th>
-              <th>Remover</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Parmegiana</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
-              <td>R$5</td>
-              <td>R$1</td>
-              <td>R$6</td>
+            <tr *ngFor="let item of orderItems1; let i = index">
+              <td>{{ item.name }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <ng-container *ngIf="!item.editingQuantity; else editQuantityInput">
+                  <!-- Exibe a quantidade original e o histórico -->
+                  <span>{{ item.quantity }}</span>
+                  <span *ngIf="item.previousQuantity" class="text-muted ms-2">(Histórico: {{ item.previousQuantity }})</span>
+                  <button class="btn btn-outline-secondary btn-sm ms-2" (click)="toggleEditQuantity(item)">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </ng-container>
+                <ng-template #editQuantityInput>
+                  <!-- Exibe o campo de edição com a nova quantidade -->
+                  <div class="d-flex align-items-center">
+                    <span class="text-muted me-2">Histórico: {{ item.previousQuantity }}</span> <!-- Exibe a quantidade antiga -->
+                    <input 
+                      type="number" 
+                      class="form-control form-control-sm d-inline-block w-50 me-2" 
+                      [(ngModel)]="item.newQuantity">
+                    <button class="btn btn-success btn-sm ms-2" (click)="saveNewQuantity(item)">Salvar</button>
+                    <button class="btn btn-secondary btn-sm ms-1" (click)="cancelEditQuantity(item)">Cancelar</button>
+                  </div>
+                </ng-template>
               </td>
-            </tr>
-            <tr>
-              <td>Coca-cola</td>
-              <td><input type="number" class="form-control form-control-sm" value="2"></td>
-              <td>R$1</td>
-              <td>R$2</td>
-              <td>R$3</td>
+              <td>R$ {{ item.unitPrice.toFixed(2) }}</td>
+              <td>R$ {{ item.additional.toFixed(2) }}</td>
+              <td>R$ {{ (item.unitPrice + item.additional) * item.quantity | number: '1.2-2' }}</td>
               <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
+                <ng-container *ngIf="!item.removed; else removedMessage">
+                  <div class="input-group">
+                    <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção" [(ngModel)]="item.removalReason">
+                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="markAsRemoved(item)">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </ng-container>
+                <ng-template #removedMessage>
+                  <span class="text-danger">Item excluído</span>
+                </ng-template>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="4" class="text-end">Subtotal</td>
-              <td>R$8</td>
-              <td></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <!-- Comanda 2 -->
-      <div class="mb-3">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2 class="comanda-title" style="font-size: 1.2rem;">Comanda 2</h2>
-          <!-- Botão Remover com modal de confirmação -->
-          <button type="button" class="btn btn-danger btn-sm" (click)="openModal(modalRemove)">X</button>
-        </div>
-        <div class="form-group">
-          <label for="comanda2">Número da Comanda:</label>
-          <input type="number" class="form-control form-control-sm" id="comanda2" name="comanda2" value="2" readonly>
-        </div>
-
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Qtd</th>
-              <th>V. Uni</th>
-              <th>Adic.</th>
-              <th>Valor</th>
-              <th>Remover</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Espaguete</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
-              <td>R$7</td>
-              <td>R$1.5</td>
-              <td>R$8.5</td>
-              <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Guaraná</td>
-              <td><input type="number" class="form-control form-control-sm" value="1"></td>
-              <td>R$2</td>
-              <td>R$0.5</td>
-              <td>R$2.5</td>
-              <td>
-                <input type="text" class="form-control form-control-sm mb-1" placeholder="Razão da remoção">
-                <button type="button" class="btn btn-danger btn-sm">Remover</button>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="4" class="text-end">Subtotal</td>
-              <td>R$11</td>
+              <td colspan="4" class="text-end"><strong>Total:</strong></td>
+              <td>R$ {{ calculateTotal(orderItems1) | number: '1.2-2' }}</td>
               <td></td>
             </tr>
           </tfoot>
@@ -116,59 +77,68 @@
       </div>
     </div>
 
+    <!-- Coluna de Ações -->
     <div class="col-md-6">
       <!-- Adicionar Comanda -->
       <div class="form-group mb-3">
         <label for="add-comanda">Adicionar Comanda:</label>
         <div class="input-group">
-          <input type="number" class="form-control form-control-sm" id="add-comanda" name="add-comanda" placeholder="Número da nova comanda">
-          <button class="btn btn-success btn-sm" type="button">Adicionar</button>
+          <input type="number" class="form-control form-control-sm" id="add-comanda" name="add-comanda" placeholder="Número da comanda" [(ngModel)]="newComandaNumber">
+          <button class="btn btn-success btn-sm" type="button" (click)="addComanda(newComandaNumber)">Adicionar</button>
         </div>
       </div>
 
+      <!-- Escanear Produto -->
       <div class="form-group mb-3">
         <label for="scan-code">Escanear pelo Código de Barras:</label>
         <div class="input-group">
-          <input type="text" class="form-control form-control-sm" id="scan-code" name="scan-code" placeholder="Ex: 0000" readonly autofocus>
-          <button class="btn btn-success btn-sm" type="button">Escanear</button>
+          <input type="text" class="form-control form-control-sm" id="scan-code" name="scan-code" placeholder="Ex: 0000" [(ngModel)]="scannedCode" autofocus>
+          <button class="btn btn-success btn-sm" type="button" (click)="scanProduct(scannedCode)">Escanear</button>
         </div>
       </div>
 
+      <!-- Forma de Pagamento -->
       <div class="form-group mb-3">
         <label for="payment">Forma de Pagamento:</label>
-        <select class="form-select form-select-sm" id="payment" name="payment">
+        <select class="form-select form-select-sm" id="payment" name="payment" [(ngModel)]="selectedPaymentMethod" (change)="onPaymentMethodChange()">
           <option value="credit">Crédito</option>
           <option value="debit">Débito</option>
           <option value="pix">PIX</option>
           <option value="dinheiro">Dinheiro</option>
+          <option value="split">Dividir Pagamento</option> <!-- Nova opção para dividir -->
         </select>
       </div>
 
-      <div class="form-group mb-3">
-        <label for="subtotal">Valor Subtotal:</label>
-        <input type="text" class="form-control form-control-sm" id="subtotal" name="subtotal" readonly>
+      <!-- Divisão do Pagamento -->
+      <div *ngIf="selectedPaymentMethod === 'split'" class="form-group mb-3">
+        <label for="splitPayment">Dividir Pagamento:</label>
+        <div *ngFor="let payment of splitPayments; let i = index" class="d-flex mb-2">
+          <select class="form-select form-select-sm" [(ngModel)]="payment.method" (change)="updateSplitAmount()">
+            <option value="credit">Crédito</option>
+            <option value="debit">Débito</option>
+            <option value="pix">PIX</option>
+            <option value="dinheiro">Dinheiro</option>
+          </select>
+          <input type="number" class="form-control form-control-sm ms-2" [(ngModel)]="payment.amount" (input)="updateSplitAmount()" min="0" [max]="totalAmount" placeholder="Valor">
+          <button type="button" class="btn btn-danger btn-sm ms-2" (click)="removeSplit(i)">Remover</button>
+        </div>
+        <button type="button" class="btn btn-info btn-sm" (click)="addSplitPayment()">Adicionar Pagamento</button>
       </div>
 
+      <!-- Gorjeta -->
       <div class="form-group mb-3">
         <label for="fixed-tip">Gorjeta (15%):</label>
-        <p id="fixed-tip" style="font-size: 0.9rem;">Valor da gorjeta: R$2.85</p>
+        <p id="fixed-tip" style="font-size: 0.9rem;">Valor da gorjeta: R$ {{ calculateTip(totalAmount) | number: '1.2-2' }}</p>
       </div>
 
-      <div class="form-group mb-3">
-        <label for="remaining-amount">Valor restante a ser pago:</label>
-        <input type="text" class="form-control form-control-sm" id="remaining-amount" name="remaining-amount" readonly>
-      </div>
-
+      <!-- Valor Total -->
       <div class="form-group mb-3">
         <label for="total-amount">Valor Total:</label>
-        <input type="text" class="form-control form-control-sm" id="total-amount" name="total-amount" readonly>
+        <input type="text" class="form-control form-control-sm" id="total-amount" name="total-amount" [value]="calculateTotalAmount()" readonly>
       </div>
 
-      <button type="button" class="btn btn-primary btn-sm">Finalizar</button>
+      <!-- Botão Finalizar -->
+      <button type="button" class="btn btn-primary btn-sm" (click)="finalizePayment()">Finalizar</button>
     </div>
   </div>
 </div>
-
-<app-modal #modalRemove [title]="'Remover Comanda'">
-  <app-remove-tabs></app-remove-tabs>
-</app-modal>

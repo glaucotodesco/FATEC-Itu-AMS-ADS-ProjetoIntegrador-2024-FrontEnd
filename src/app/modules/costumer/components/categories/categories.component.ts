@@ -14,8 +14,9 @@ export class CategoriesComponent {
       products: [
         {
           name: 'Brusqueta de Carne',
-          price: 9.99,
-          image: 'https://imgs.search.brave.com/eefgdcxCsMnuctAxODrACcPfnbQpm56DoMME78bF0Uo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vY2VudHJh/bGJsb2dzLmNvbS5i/ci93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MS8xMi9icnVzY2hl/dHRhLWl0YWxpYW5h/LmpwZz9yZXNpemU9/ODAwLDUzMCZzc2w9/MQ',
+          description: 'Uma deliciosa brusqueta de pão crocante, coberta com suculenta carne grelhada, temperada com ervas finas e finalizada com um toque especial de azeite de oliva.',
+          price: 19.99,
+          image: './assets/costumer/search/categories/brusquetaDeCarne.jpg',
           additions: [
             { name: 'Azeitonas', price: 1.50 },
             { name: 'Queijo Ralado', price: 2.00 },
@@ -23,8 +24,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Salada Caesar',
+          description: 'Uma clássica salada Caesar, com folhas frescas de alface crocante, croutons dourados e molho cremoso à base de queijo parmesão.',
           price: 12.99,
-          image: 'https://static.itdg.com.br/images/640-400/3f0787cb6db2f0db10269fc45bd8abee/shutterstock-1078415420.jpg',
+          image: './assets/costumer/search/categories/saladaCaesar.jpg',
           additions: [
             { name: 'Frango Grelhado', price: 4.00 },
             { name: 'Croutons', price: 1.00 },
@@ -32,8 +34,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Coxinha',
+          description: 'A tradicional coxinha, recheada com frango temperado e envolvida em uma crocante camada dourada, servida quentinha.',
           price: 6.99,
-          image: 'https://receitasdeaz.com.br/wp-content/uploads/2024/06/coxinhas-de-frango.webp',
+          image: './assets/costumer/search/categories/coxinha.jpg',
           additions: [
             { name: 'Molho de Pimenta', price: 0.50 },
             { name: 'Maionese', price: 0.50 },
@@ -46,8 +49,9 @@ export class CategoriesComponent {
       products: [
         {
           name: 'Bife com Batata',
+          description: 'Um bife suculento grelhado ao ponto perfeito, acompanhado de batatas crocantes e temperadas, para uma refeição clássica e irresistível.',
           price: 29.99,
-          image: 'https://imgs.search.brave.com/ILeWK84t7nc5cuhXIqWvuroyOgF365UG338rcFIMF2Y/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2VuYXJpb210LmNv/bS5ici93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNC8wMi9SZWNl/aXRhLWRlLWJpZmUt/Y29tLWJhdGF0YS1m/cml0YS5qcGc',
+          image: './assets/costumer/search/categories/bifeComBatata.jpg',
           additions: [
             { name: 'Queijo', price: 2.00 },
             { name: 'Bacon', price: 3.00 },
@@ -55,8 +59,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Frango à Milanesa',
+          description: 'Filé de frango empanado e frito até ficar dourado e crocante, servido com um delicioso molho de alho e arroz fresquinho.',
           price: 39.99,
-          image: 'https://imgs.search.brave.com/C75f-wax7JibX22jE6RD1THm30QX0d7R1KrPInGoxiY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZGVlcGZyZWV6ZS5j/b20uYnIvaW1nL3By/YXRvcy9iaWcvaWF2/MDJfZmlsZV9kZV9m/cmFuZ29fYV9taWxh/bmVzYTIxMDgyNTA1/NTkwOC5qcGc',
+          image: './assets/costumer/search/categories/frangoAMilanesa.jpg',
           additions: [
             { name: 'Molho de Alho', price: 1.00 },
             { name: 'Arroz', price: 2.50 },
@@ -64,8 +69,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Macarrão ao Sugo',
+          description: 'Macarrão al dente com um molho sugo caseiro, feito com tomates frescos e ervas aromáticas, servido com queijo parmesão ralado por cima.',
           price: 24.99,
-          image: 'https://imgs.search.brave.com/OdqWL2E-crnV3RlQ8LWpKyRMnC7ucmJoD40BG-JDWcw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5hbWFyaWFicm9n/dWkuY29tLmJyL2Fz/c2V0cy91cGxvYWRz/L3JlY2VpdGFzL2Zv/dG9zL3VzdWFyaW8t/MjEyNC1mZWRlMDYz/ZDJlNzVmMjljM2Yz/OWY0MmJjNzY0MjRk/MC5qcGc',
+          image: './assets/costumer/search/categories/macarraoSugo.jpg',
           additions: [
             { name: 'Queijo Parmesão', price: 2.00 },
             { name: 'Manjericão', price: 1.00 },
@@ -78,8 +84,9 @@ export class CategoriesComponent {
       products: [
         {
           name: 'Refrigerante',
+          description: 'Refrigerante gelado e refrescante, disponível em diversos sabores para acompanhar sua refeição.',
           price: 5.00,
-          image: 'https://img.freepik.com/fotos-premium/ai-image-generator-a-coca-cola-e-um-refrigerante-carbonatado-vendido-nas-lojas_977285-9096.jpg?w=740',
+          image: './assets/costumer/search/categories/refrigerante.jpg',
           additions: [
             { name: 'Gelo', price: 0.00 },
             { name: 'Limão', price: 0.50 },
@@ -87,8 +94,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Cerveja',
+          description: 'Cerveja gelada de alta qualidade, perfeita para acompanhar seus pratos preferidos.',
           price: 8.50,
-          image: 'https://cdn.shopify.com/s/files/1/0054/6682/files/how_to_make_beer_480x480.jpg?v=1682910325',
+          image: './assets/costumer/search/categories/cerveja.jpg',
           additions: [
             { name: 'Gelo', price: 0.00 },
             { name: 'Limão', price: 0.50 },
@@ -96,8 +104,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Suco Natural',
+          description: 'Suco natural e refrescante, feito com frutas frescas, ideal para quem busca um toque saudável durante a refeição.',
           price: 4.50,
-          image: 'https://cantinagoodlanche.com.br/wp-content/uploads/2020/07/beneficios-dos-sucos-naturais-1-alfa-hotel.jpg',
+          image: './assets/costumer/search/categories/suco.jpg',
           additions: [
             { name: 'Hortelã', price: 0.50 },
             { name: 'Gelo', price: 0.00 },
@@ -109,9 +118,10 @@ export class CategoriesComponent {
       name: 'Porções',
       products: [
         {
-          name: 'Batata Frita',
+          name: 'Batata Frita C/ Cheddar',
+          description: 'Batatas fritas crocantes, cobertas com um delicioso queijo cheddar derretido, para um toque irresistível de sabor.',
           price: 15.00,
-          image: 'https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRFiWUbLK4cmvufUljGHhn1ifqaOkZZzebdCUE347QUG092UcSatzeChPwpBPY-RLQW',
+          image: './assets/costumer/search/categories/batataCheddar.jpg',
           additions: [
             { name: 'Molho Ketchup', price: 0.50 },
             { name: 'Maionese', price: 0.50 },
@@ -119,8 +129,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Iscas de Frango',
+          description: 'Iscas de frango crocantes e douradas, perfeitas para beliscar enquanto aproveita um bom momento.',
           price: 18.00,
-          image: 'https://anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-2847-f58205be67bef7c46637384f4627de28.JPG',
+          image: './assets/costumer/search/categories/iscaDeFrango.jpg',
           additions: [
             { name: 'Molho Barbecue', price: 1.00 },
             { name: 'Molho de Pimenta', price: 0.50 },
@@ -128,8 +139,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Linguiça Acebolada',
+          description: 'Linguiça suculenta, grelhada e servida com cebolas caramelizadas, uma combinação irresistível.',
           price: 20.00,
-          image: 'https://static.itdg.com.br/images/640-400/70acb497226f5a39eafd73cab3d15509/343137-original.jpg',
+          image: './assets/costumer/search/categories/linguica.jpg',
           additions: [
             { name: 'Molho de Alho', price: 1.00 },
             { name: 'Farofa', price: 1.50 },
@@ -142,8 +154,9 @@ export class CategoriesComponent {
       products: [
         {
           name: 'Pudim',
+          description: 'Pudim de leite condensado, cremoso e com a textura perfeita, servido com calda de caramelo suave.',
           price: 8.99,
-          image: 'https://static.itdg.com.br/images/640-400/3727a5e9857b50aa40fad2ebeeb7724f/63328-263980-original.jpg',
+          image: './assets/costumer/search/categories/pudim.jpg',
           additions: [
             { name: 'Calda de Chocolate', price: 1.00 },
             { name: 'Granulado', price: 0.50 },
@@ -151,8 +164,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Torta de Limão',
+          description: 'Torta de limão fresquinha, com uma crosta de biscoito, recheio cremoso de limão e cobertura de chantilly.',
           price: 10.99,
-          image: 'https://static.itdg.com.br/images/640-400/634823f4b89083718f7457a7d17cbeaf/319681-original.jpg',
+          image: './assets/costumer/search/categories/tortaDeLimao.jpg',
           additions: [
             { name: 'Chantilly', price: 1.00 },
             { name: 'Frutas Vermelhas', price: 1.50 },
@@ -160,8 +174,9 @@ export class CategoriesComponent {
         },
         {
           name: 'Brownie',
+          description: 'Brownie de chocolate intenso, com pedaços de nozes e uma camada de calda de caramelo por cima.',
           price: 9.99,
-          image: 'https://static.itdg.com.br/images/640-420/5d139b703a9df7604abf863a3bd76aa6/252863-shutterstock-1938293728.jpg',
+          image: './assets/costumer/search/categories/brownie.jpg',
           additions: [
             { name: 'Sorvete', price: 2.00 },
             { name: 'Calda de Caramelo', price: 1.00 },
@@ -170,7 +185,7 @@ export class CategoriesComponent {
       ]
     }
   ];
-
+  
 
   getProductsForSelectedCategory() {
     const category = this.categories.find(cat => cat.name === this.selectedCategory);
