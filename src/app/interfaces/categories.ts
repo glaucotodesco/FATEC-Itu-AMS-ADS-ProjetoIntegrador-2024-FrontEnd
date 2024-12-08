@@ -1,6 +1,10 @@
+import { Product } from './product';
+
+
 export interface Categories {
   id: number;
   name: string;
-  // qtdProctucs: number;
+  qtdProducts: number;
   availability: boolean;
+  products?: Product[];
 }

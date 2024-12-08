@@ -14,7 +14,7 @@ export class CategoriesComponent implements OnInit {
   @ViewChild('modalEdit') modalEdit!: ModalComponent;
 
   categories: Categories[] = [];
-  newCategory: Categories = { id: 0, name: '', availability: true };
+  newCategory: Categories = { id: 0, name: '', qtdProducts: 0, availability: true };
   categoryToDelete: any = null;
 
   constructor(private categoriesService: CategoriesService) {}
@@ -31,7 +31,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   openModal(modal: ModalComponent, category: Categories | null = null): void {
-    this.newCategory = category ? { ...category } : { id: 0, name: '', availability: true };
+    this.newCategory = category ? { ...category } : { id: 0, name: '', qtdProducts: 0, availability: true };
     modal.open().then(result => {
       if (result) {
         category ? this.updateCategory() : this.createCategory();
@@ -51,7 +51,7 @@ export class CategoriesComponent implements OnInit {
     this.categoriesService.postCategories(this.newCategory).subscribe({
       next: (createdCategory) => {
         this.categories.push(createdCategory);
-        this.newCategory = { id: 0, name: '', availability: true };
+        this.newCategory = { id: 0, name: '', qtdProducts: 0, availability: true };
       },
       error: (err) => console.error("Erro ao criar categoria:", err)
     });
@@ -96,7 +96,7 @@ export class CategoriesComponent implements OnInit {
         if (index !== -1) {
           this.categories[index] = putCategories;
         }
-        this.newCategory = { id: 0, name: '', availability: true };
+        this.newCategory = { id: 0, name: '', qtdProducts: 0, availability: true };
         this.modalEdit.close();
       },
       error: (err) => console.error("Erro ao atualizar categoria:", err)

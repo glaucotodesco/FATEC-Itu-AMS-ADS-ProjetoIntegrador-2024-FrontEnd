@@ -9,20 +9,15 @@
   <div class="row">
     <div class="col-2">
       <div class="position-fixed">
-        <div class="d-flex gap-5" style="height: 450px;">
-          <div>
-            <h4>Categorias</h4>
-            <div class="list-group list-group-flush">
-              <a *ngFor="let c of exampleInfo" href="#" class="list-group-item list-group-item-action">
-                {{ c.category }}
-              </a>
-            </div>
-            <button type="button" class="btn btn-primary btn-sm mt-3" routerLink="/admin/categories">
-              <i class="bi bi-plus-lg"></i>
-            </button>
-          </div>
-          <div class="vr"></div>
+        <h4>Categorias</h4>
+        <div class="list-group list-group-flush">
+          <a *ngFor="let c of exampleInfo" href="#" class="list-group-item list-group-item-action">
+            {{ c.category }}
+          </a>
         </div>
+        <button type="button" class="btn btn-primary btn-sm mt-3" routerLink="/admin/categories">
+          <i class="bi bi-plus-lg"></i>
+        </button>
       </div>
     </div>
     <div class="col-10">

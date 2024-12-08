@@ -8,6 +8,7 @@
     <thead class="table-secondary">
       <tr>
         <th scope="col">Nome</th>
+        <th scope="col">Quantidade de produtos</th>
         <th scope="col">Disponível</th>
         <th scope="col">Opções</th>
         <th scope="col"></th>
@@ -16,6 +17,7 @@
     <tbody>
       <tr *ngFor="let category of categories">
         <td>{{ category.name }}</td>
+        <td>{{ category.qtdProducts }}</td>
         <td class="text-center">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" [checked]="category.availability" disabled>
