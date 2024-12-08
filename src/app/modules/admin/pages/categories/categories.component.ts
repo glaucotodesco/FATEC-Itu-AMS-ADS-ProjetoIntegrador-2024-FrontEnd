@@ -13,11 +13,11 @@ export class CategoriesComponent implements OnInit {
   @ViewChild('modalDelete') modalDelete!: ModalComponent;
   @ViewChild('modalEdit') modalEdit!: ModalComponent;
 
-  categories: Categories[] = []
-  newCategory: Categories = { id: 0, name: '', availability: true }
+  categories: Categories[] = [];
+  newCategory: Categories = { id: 0, name: '', availability: true };
   categoryToDelete: any = null;
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -31,24 +31,13 @@ export class CategoriesComponent implements OnInit {
   }
 
   openModal(modal: ModalComponent, category: Categories | null = null): void {
-    if (category) {
-      this.newCategory = { ...category };
-    } else {
-      this.newCategory = { id: 0, name: '', availability: true };
-    }
+    this.newCategory = category ? { ...category } : { id: 0, name: '', availability: true };
     modal.open().then(result => {
       if (result) {
-        if (category) {
-          this.updateCategory();
-        } else {
-          this.createCategory();
-        }
+        category ? this.updateCategory() : this.createCategory();
       }
-    }).catch(error => {
-      console.error('Modal fechado sem ação:', error);
-    });
+    }).catch(error => console.error('Modal fechado sem ação:', error));
   }
-
 
   isNameInvalid(): boolean {
     return !this.newCategory.name || this.newCategory.name.trim() === '';
@@ -67,12 +56,9 @@ export class CategoriesComponent implements OnInit {
       error: (err) => console.error("Erro ao criar categoria:", err)
     });
 
-    console.log('Categoria criada:', this.newCategory);
-
     if (this.modalForm) {
       this.modalForm.close();
     }
-
   }
 
   openDeleteModal(category: any): void {
@@ -80,7 +66,7 @@ export class CategoriesComponent implements OnInit {
     this.modalDelete.open();
   }
 
-  deleteCategory() {
+  deleteCategory(): void {
     if (this.categoryToDelete) {
       this.categoriesService.deleteCategories(this.categoryToDelete.id).subscribe({
         next: () => {
@@ -88,14 +74,13 @@ export class CategoriesComponent implements OnInit {
           this.modalDelete.close();
           window.location.reload();
         },
-        error: (err) => {
-          console.error('Erro ao deletar categoria', err);
-        }
+        error: (err) => console.error('Erro ao deletar categoria', err)
       });
     }
   }
+
   openEditModal(category: Categories): void {
-    this.newCategory = { ...category }; 
+    this.newCategory = { ...category };
     this.modalEdit.open();
   }
 
@@ -109,19 +94,12 @@ export class CategoriesComponent implements OnInit {
       next: (putCategories) => {
         const index = this.categories.findIndex(c => c.id === putCategories.id);
         if (index !== -1) {
-          // Atualiza a categoria na lista
           this.categories[index] = putCategories;
         }
-        this.newCategory = { id: 0, name: '', availability: true };  // Limpa os dados
-        this.modalEdit.close();  // Fecha o modal
+        this.newCategory = { id: 0, name: '', availability: true };
+        this.modalEdit.close();
       },
-      error: (err) => {
-        console.error("Erro ao atualizar categoria:", err);
-      }
+      error: (err) => console.error("Erro ao atualizar categoria:", err)
     });
-
-    console.log('Categoria atualizada:', this.newCategory);
   }
-
-
 }
