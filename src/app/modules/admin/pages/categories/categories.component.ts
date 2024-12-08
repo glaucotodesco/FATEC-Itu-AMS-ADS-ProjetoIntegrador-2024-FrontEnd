@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from '../../../../shared/components/modal/modal.component';
 import { CategoriesService } from '../../../../services/categories.service';
 import { Categories } from '../../../../interfaces/categories';
@@ -9,15 +9,11 @@ import { Categories } from '../../../../interfaces/categories';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent implements OnInit {
+  @ViewChild('modalForm') modalForm: ModalComponent | null = null;
+  @ViewChild('modalDelete') modalDelete!: ModalComponent;
   categories: Categories[] = []
   newCategory: Categories = { id: 0, name: '', availability: true }
-  categoryToDelete: Categories | null = null;  // Armazena o objeto da categoria a ser deletada
-
-  // categories: Categories[] = [
-  //   { id: 1, name: 'Bebidas', availability: true },
-  //   { id: 2, name: 'Pratos', availability: false },
-  //   { id: 3, name: 'Sobremesas', availability: true }
-  // ];
+  categoryToDelete: any = null;
 
   constructor(private categoriesService: CategoriesService) { }
 
@@ -46,32 +42,50 @@ export class CategoriesComponent implements OnInit {
       console.error('Modal fechado sem ação:', error);
     });
   }
+  
+  isNameInvalid(): boolean {
+    return !this.newCategory.name || this.newCategory.name.trim() === '';
+  }
 
   createCategory(): void {
+    if (this.isNameInvalid()) {
+      console.error("O nome da categoria não pode ser vazio.");
+      return;
+    }
     this.categoriesService.postCategories(this.newCategory).subscribe({
       next: (createdCategory) => {
-        this.categories.push(createdCategory); // Adiciona a nova categoria à lista local
-        this.newCategory = { id: 0, name: '', availability: true }; // Limpa os campos após criação
+        this.categories.push(createdCategory); 
+        this.newCategory = { id: 0, name: '', availability: true }; 
       },
       error: (err) => console.error("Erro ao criar categoria:", err)
     });
-  }
-  
-  openDeleteModal(modalDelete: ModalComponent, category: Categories): void {
-    this.categoryToDelete = category;
-    modalDelete.open();
+
+    console.log('Categoria criada:', this.newCategory);
+
+    if (this.modalForm) {
+      this.modalForm.close();
+    }
+
   }
 
-  deleteCategory(): void {
+  openDeleteModal(category: any): void {
+    this.categoryToDelete = category;
+    this.modalDelete.open();
+  }
+
+  deleteCategory() {
     if (this.categoryToDelete) {
       this.categoriesService.deleteCategories(this.categoryToDelete.id).subscribe({
         next: () => {
-          this.categories = this.categories.filter(category => category.id !== this.categoryToDelete?.id);
-          this.categoryToDelete = null;  // Limpa a categoria após exclusão
+          console.log('Categoria deletada com sucesso');
+          this.modalDelete.close();
+          window.location.reload();
         },
-        error: (err) => console.error("Erro ao deletar categoria:", err)
+        error: (err) => {
+          console.error('Erro ao deletar categoria', err);
+        }
       });
     }
   }
-  
+
 }
