@@ -24,7 +24,7 @@
           </div>
         </td>
         <td>
-          <button type="button" class="btn btn-secondary me-2" (click)="openModal(modalForm, category)">
+          <button type="button" class="btn btn-secondary me-2" (click)="openEditModal(category)">
             <i class="bi bi-pencil-square"></i>
           </button>
           <button type="button" class="btn btn-danger" (click)="openDeleteModal(category)">
@@ -44,11 +44,25 @@
       O nome da categoria não pode ser vazio.
     </div>
   </div>
+
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="availabilityInput" [(ngModel)]="newCategory.availability">
     <label class="form-check-label" for="availabilityInput">Disponível</label>
   </div>
   <button type="button" class="btn btn-primary" (click)="createCategory()">Criar</button>
+</app-modal>
+
+<app-modal #modalEdit [title]="'Editar Categoria'">
+  <div class="mb-3">
+    <label for="nameInputEdit" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nameInputEdit" [(ngModel)]="newCategory.name">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="availabilityInputEdit" [(ngModel)]="newCategory.availability">
+    <label class="form-check-label" for="availabilityInputEdit">Disponível</label>
+  </div>
+  <button type="button" class="btn btn-primary me-2" (click)="updateCategory()">Salvar alterações</button>
+  <button type="button" class="btn btn-secondary" (click)="modalEdit.close()">Cancelar</button>
 </app-modal>
 
 

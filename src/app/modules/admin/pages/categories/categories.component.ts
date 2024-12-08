@@ -11,6 +11,8 @@ import { Categories } from '../../../../interfaces/categories';
 export class CategoriesComponent implements OnInit {
   @ViewChild('modalForm') modalForm: ModalComponent | null = null;
   @ViewChild('modalDelete') modalDelete!: ModalComponent;
+  @ViewChild('modalEdit') modalEdit!: ModalComponent;
+
   categories: Categories[] = []
   newCategory: Categories = { id: 0, name: '', availability: true }
   categoryToDelete: any = null;
@@ -30,19 +32,24 @@ export class CategoriesComponent implements OnInit {
 
   openModal(modal: ModalComponent, category: Categories | null = null): void {
     if (category) {
-      this.newCategory = { ...category };  // Atribui os dados da categoria à nova categoria
+      this.newCategory = { ...category };
     } else {
-      this.newCategory = { id: 0, name: '', availability: true };  // Cria uma nova categoria
+      this.newCategory = { id: 0, name: '', availability: true };
     }
     modal.open().then(result => {
       if (result) {
-        this.createCategory(); // Se o resultado for 'ok', cria a categoria
+        if (category) {
+          this.updateCategory();
+        } else {
+          this.createCategory();
+        }
       }
     }).catch(error => {
       console.error('Modal fechado sem ação:', error);
     });
   }
-  
+
+
   isNameInvalid(): boolean {
     return !this.newCategory.name || this.newCategory.name.trim() === '';
   }
@@ -54,8 +61,8 @@ export class CategoriesComponent implements OnInit {
     }
     this.categoriesService.postCategories(this.newCategory).subscribe({
       next: (createdCategory) => {
-        this.categories.push(createdCategory); 
-        this.newCategory = { id: 0, name: '', availability: true }; 
+        this.categories.push(createdCategory);
+        this.newCategory = { id: 0, name: '', availability: true };
       },
       error: (err) => console.error("Erro ao criar categoria:", err)
     });
@@ -87,5 +94,34 @@ export class CategoriesComponent implements OnInit {
       });
     }
   }
+  openEditModal(category: Categories): void {
+    this.newCategory = { ...category }; 
+    this.modalEdit.open();
+  }
+
+  updateCategory(): void {
+    if (this.isNameInvalid()) {
+      console.error("O nome da categoria não pode ser vazio.");
+      return;
+    }
+
+    this.categoriesService.putCategories(this.newCategory).subscribe({
+      next: (putCategories) => {
+        const index = this.categories.findIndex(c => c.id === putCategories.id);
+        if (index !== -1) {
+          // Atualiza a categoria na lista
+          this.categories[index] = putCategories;
+        }
+        this.newCategory = { id: 0, name: '', availability: true };  // Limpa os dados
+        this.modalEdit.close();  // Fecha o modal
+      },
+      error: (err) => {
+        console.error("Erro ao atualizar categoria:", err);
+      }
+    });
+
+    console.log('Categoria atualizada:', this.newCategory);
+  }
+
 
 }
