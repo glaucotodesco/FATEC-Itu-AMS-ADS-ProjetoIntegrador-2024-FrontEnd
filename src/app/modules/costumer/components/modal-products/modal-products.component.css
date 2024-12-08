@@ -1,3 +1,20 @@
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
 .modal-content {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInModal 0.3s ease-out; 
+}
+
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
