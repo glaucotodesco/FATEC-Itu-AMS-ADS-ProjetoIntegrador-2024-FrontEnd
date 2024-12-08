@@ -5,7 +5,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CloseRegisterComponent } from './pages/close-register/close-register.component';
-import { OrderRegisterComponent } from './components/order-register/order-register.component';
 import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
@@ -24,10 +23,6 @@ const routes: Routes = [
       {
         path: 'close-register',
         component: CloseRegisterComponent
-      },
-      {
-        path: 'order-register',
-        component: OrderRegisterComponent
       },
       {
         path: "home",
