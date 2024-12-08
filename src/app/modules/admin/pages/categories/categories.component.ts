@@ -14,10 +14,10 @@ export class CategoriesComponent implements OnInit {
   @ViewChild('modalEdit') modalEdit!: ModalComponent;
 
   categories: Categories[] = [];
-  newCategory: Categories = { id: 0, name: '', qtdProducts: 0, availability: true };
+  newCategory: Categories = { id: null, name: '', qtdProducts: 0, availability: true };
   categoryToDelete: any = null;
 
-  constructor(private categoriesService: CategoriesService) {}
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
     this.loadCategories();
@@ -79,10 +79,11 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
-  openEditModal(category: Categories): void {
+  openEditModal(category: any) {
     this.newCategory = { ...category };
     this.modalEdit.open();
   }
+
 
   updateCategory(): void {
     if (this.isNameInvalid()) {
@@ -90,16 +91,20 @@ export class CategoriesComponent implements OnInit {
       return;
     }
 
-    this.categoriesService.putCategories(this.newCategory).subscribe({
-      next: (putCategories) => {
-        const index = this.categories.findIndex(c => c.id === putCategories.id);
-        if (index !== -1) {
-          this.categories[index] = putCategories;
-        }
-        this.newCategory = { id: 0, name: '', qtdProducts: 0, availability: true };
+    if (!this.newCategory.id) {
+      console.error('Erro: ID da categoria está vazio.');
+      return;
+    }
+
+    this.categoriesService.putCategories(this.newCategory).subscribe(
+      (response) => {
+        console.log('Categoria atualizada com sucesso!', response);
         this.modalEdit.close();
+        this.loadCategories(); 
       },
-      error: (err) => console.error("Erro ao atualizar categoria:", err)
-    });
+      (error) => {
+        console.error('Erro ao atualizar categoria:', error);
+      }
+    );
   }
 }

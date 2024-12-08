@@ -2,7 +2,7 @@ import { Product } from './product';
 
 
 export interface Categories {
-  id: number;
+  id: number | null;
   name: string;
   qtdProducts: number;
   availability: boolean;

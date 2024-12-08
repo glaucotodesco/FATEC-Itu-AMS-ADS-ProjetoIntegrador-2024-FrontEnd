@@ -22,6 +22,9 @@ export class CategoriesService {
     return this.http.post<Categories>(this.url, categories);
   }
   putCategories(categories: Categories): Observable<Categories> {
+    if (!categories.id) {
+      throw new Error('ID da categoria não pode ser nulo ou indefinido.');
+    }
     return this.http.put<Categories>(`${this.url}/${categories.id}`, categories);
   }
   deleteCategories(id: number): Observable<any> {
