@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../../../interfaces/product';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.css'
 })
-export class MenuItemComponent {
-  prods = [
-    {name: 'coca cola', price: 9.99, image: 'assets/menu/coke.jpg'},
-    {name: 'hambúrguer', price: 49.99, image: 'assets/menu/hamburguer.jpg'},
-    {name: 'milk shake', price: 24.99, image: 'assets/menu/milk-shake.jpg'},
-    {name: 'macarrão ao sugo', price: 44.99, image: 'assets/menu/pasta.jpg'},
-  ]
+export class MenuItemComponent implements OnInit {
+  prods: Product[] = []
+
+  constructor (private service: ProductService) {}
+
+  ngOnInit(): void {
+    this.loadProducts()
+  }
+
+  loadProducts () {
+    this.service.getProducts().subscribe(data => this.prods = data)
+  }
 }
