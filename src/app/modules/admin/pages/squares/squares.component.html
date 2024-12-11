@@ -16,7 +16,7 @@
 </section>
 
 <app-modal #modalItemAdd [title]="'Adicionar Item'" [okTextButton]="'Salvar'" [cancelTextButton]="'Cancelar'" [okResult]="true">
-  <form [formGroup]="formGroupItem">
+  <form [formGroup]="formGroupItem">  
     <div class="mb-3">
       <label for="nameInput" class="form-label">Nome</label>
       <input type="text" class="form-control" id="nameInput" formControlName="name">
@@ -30,6 +30,12 @@
       <label for="nameInput" class="form-label">Nome</label>
       <input type="text" class="form-control" id="nameInput" formControlName="name" [value]="item.name">
     </div>
+
+    <select class="form-select" aria-label="Default select example" formControlName="square" >  
+      
+      <option *ngFor="let s of squares" value="{{s.id}}" [ngValue]="{id:s.id, name:s.name}">{{s.name}}</option>
+    </select>
+    
   </form>
 </app-modal>
 

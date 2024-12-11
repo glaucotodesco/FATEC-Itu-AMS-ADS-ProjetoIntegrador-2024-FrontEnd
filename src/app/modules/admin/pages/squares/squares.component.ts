@@ -25,7 +25,7 @@ export class SquaresComponent implements OnInit {
   square: Square = {} as Square;
   items: Item[] = [];
   item: Item = {} as Item;
-
+  dorga: Square = {} as Square;
   constructor(
     private squareService: SquareService,
     private itemsService: ItemsService,
@@ -75,9 +75,13 @@ export class SquaresComponent implements OnInit {
   }
 
   saveItem(square: Square, modal: ModalComponent, item?: Item) {
+    
+
     modal.open().then((confirm) => { 
+  
+      
       if (confirm) { 
-        Object.assign(this.square, square); 
+         
 
         if (!this.isEditing) {
           Object.assign(this.item, this.formGroupItem.value, { square: { id: square.id, name: square.name } });
@@ -87,9 +91,14 @@ export class SquaresComponent implements OnInit {
             next: () => this.loadSquares() 
           })
         } else {
-          Object.assign(this.item, item, {name: this.formGroupItem.value.name},  { square: { id: square.id, name: square.name } } )
-    
+          Object.assign(
+            this.item, item, 
+            {name: this.formGroupItem.value.name || item?.name},  
+            { square: { id: this.formGroupItem.value.square.id || square.id, name: this.formGroupItem.value.square.name || square.name } } )
+
+              
           this.itemsService.putItem(this.item).subscribe({
+      
             next: () => this.loadSquares()
           });
 
@@ -122,6 +131,9 @@ export class SquaresComponent implements OnInit {
 
   updateItem(item: Item, square: Square, modal: ModalComponent) {
     this.square = square;
+    this.dorga = square;
+    console.log(this.dorga, "dorga");
+    
     this.isEditing = true;
     Object.assign(this.item, item);
     this.saveItem(square, modal, item);
